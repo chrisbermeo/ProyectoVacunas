@@ -5,40 +5,101 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/login_bg"
+    >
+    
+    <LinearLayout
+        android:layout_width="962px"
+        android:layout_height="1190px"
+        android:orientation="vertical"
+        android:background="@drawable/login_redondeado"
+        android:layout_gravity="center"
+        android:layout_marginTop="468px"
+        >
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/black"
+            android:textSize="72px"
+            android:fontFamily="sans-serif-medium"
+            />
 
-    <EditText
-        android:id="@+id/txtCedula"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Cedula"
-        android:inputType="number" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="871px"
+            android:layout_height="wrap_content"
+            android:text="Correo electrónico"
+            android:layout_marginTop="20dp"
+            android:textSize="36px"
+            android:fontFamily="sans-serif-light"
+            android:layout_gravity="center"
+            />
 
-    <EditText
-        android:id="@+id/txtPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword" />
+        <EditText
+            android:id="@+id/txtCorreo"
+            android:layout_width="871px"
+            android:layout_height="136.5px"
+            android:ems="10"
+            android:inputType="text"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center"
+            />
 
-    <Button
-        android:id="@+id/btnIngresar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ingresar" />
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="871px"
+            android:layout_height="wrap_content"
+            android:text="Contraseña"
+            android:layout_marginTop="20dp"
+            android:textSize="36px"
+            android:fontFamily="sans-serif-light"
+            android:layout_gravity="center"
+            />
 
-    <Button
-        android:id="@+id/btnRegistrarse"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Registrarse" />
+        <EditText
+            android:id="@+id/txtPassword"
+            android:layout_width="871px"
+            android:layout_height="136.5px"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center"
+            />
+
+        <Button
+            android:id="@+id/btnIngresar"
+            android:layout_width="641px"
+            android:layout_height="108px"
+            android:text="Ingresar"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/btn_ingresar_login"
+            android:textColor="@drawable/txt_btn_ingresar"
+            />
+
+        <Button
+            android:id="@+id/btnRegistrarse"
+            android:layout_width="641px"
+            android:layout_height="108px"
+            android:text="Registrarse"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/btn_ingresar_login"
+            android:textColor="@drawable/txt_btn_ingresar"
+            android:onClick="registro"
+            />
+
+
+
+
+    </LinearLayout>
+
+
 
 </LinearLayout>
