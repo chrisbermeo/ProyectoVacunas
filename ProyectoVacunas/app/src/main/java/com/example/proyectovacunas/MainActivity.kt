@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         //probando la interfaz de mapa
         btnIngresar = findViewById(R.id.btnIngresar)
         btnIngresar.setOnClickListener{
-            val forma2 = Intent(this@MainActivity, MapsActivity::class.java)
+            val forma2 = Intent(this@MainActivity, GeneracionTurnos::class.java)
             startActivity(forma2)
         }
     }
