@@ -1,6 +1,7 @@
 package com.example.proyectovacunas
 
 import android.content.Intent
+//<<<<<<< HEAD
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,11 +11,12 @@ import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 
+
 class MainActivity : AppCompatActivity() {
     private lateinit var btnIngresar: Button
     private lateinit var btnRegistrarse: Button
-    private lateinit var txtCorreo : EditText
-    private lateinit var txtPassword : EditText
+    private lateinit var txtCorreo: EditText
+    private lateinit var txtPassword: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,14 +28,15 @@ class MainActivity : AppCompatActivity() {
         setup()
     }
 
-    private fun setup(){
-        btnIngresar.setOnClickListener(){
-            if (txtCorreo.text.isNotEmpty() && txtPassword.text.isNotEmpty()){
+    private fun setup() {
+        btnIngresar.setOnClickListener() {
+            if (txtCorreo.text.isNotEmpty() && txtPassword.text.isNotEmpty()) {
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(txtCorreo.text.toString(),
-                        txtPassword.text.toString()).addOnCompleteListener{
-                    if(it.isSuccessful){
-                        showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
-                    }else{
+                        txtPassword.text.toString()).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        //showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
+                        irTurnos()
+                    } else {
                         showAlert()
                     }
                 }
@@ -42,26 +45,48 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun showAlert(){
+    private fun showAlert() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Error")
         builder.setMessage("Se ha producido unu error de autenticacion del usuario")
-        builder.setPositiveButton("Aceptar",null)
-        val dialog : AlertDialog = builder.create()
+        builder.setPositiveButton("Aceptar", null)
+        val dialog: AlertDialog = builder.create()
         dialog.show()
     }
 
-    private fun showHome(email: String, provider : ProviderType){
-        val homeIntent = Intent(this@MainActivity,MenuActivity::class.java).apply {
-            putExtra("email",email)
-            putExtra("provider",provider.name)
+    private fun showHome(email: String, provider: ProviderType) {
+        val homeIntent = Intent(this@MainActivity, MenuActivity::class.java).apply {
+            putExtra("email", email)
+            putExtra("provider", provider.name)
         }
         startActivity(homeIntent)
     }
 
 
-    fun registro(v:View){
+    fun registro(v: View) {
         val irRegistro = Intent(this@MainActivity, Registrarse::class.java)
         startActivity(irRegistro)
     }
+
+    fun irTurnos() {
+        val forma2 = Intent(this@MainActivity, GeneracionTurnos::class.java)
+        startActivity(forma2)
+    }
 }
+
+//=======
+
+/*
+class MainActivity : AppCompatActivity() {
+    private lateinit var btnIngresar: Button
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        //probando la interfaz de mapa
+        btnIngresar = findViewById(R.id.btnIngresar)
+        btnIngresar.setOnClickListener{
+            val forma2 = Intent(this@MainActivity, GeneracionTurnos::class.java)
+            startActivity(forma2)
+        }
+>>>>>>> 0b35b2b4493afe52737d47acaaebae9adc747477
+    }*/

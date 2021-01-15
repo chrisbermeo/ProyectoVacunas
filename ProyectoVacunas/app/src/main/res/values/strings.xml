@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">ProyectoVacunas</string>
+    <string-array name="ComboSector">
+        <item>Norte</item>
+        <item>Sur</item>
+        <item>Centro</item>
+    </string-array>
+    <string-array name="ComboVacunas">
+        <item>ARNm-Pfizer</item>
+        <item>Moderna</item>
+        <item>Vector vaccines</item>
+    </string-array>
+    <string-array name="ComboCentrosAcopio">
+        <item>Hospital del guasmo Sur</item>
+        <item>Hospital los ceibos</item>
+        <item>Centro de convenciones</item>
+        <item>Maternidad Enrique Sotomayor</item>
+    </string-array>
+    <string-array name="ComboP">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+    </string-array>
+    <string name="title_activity_maps">Map</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyC_QT-cMvOv1SdeyYNbNunrflg_v3T9Sy8</string>
 </resources>

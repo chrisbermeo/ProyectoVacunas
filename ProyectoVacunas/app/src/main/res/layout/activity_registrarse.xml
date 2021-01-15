@@ -27,16 +27,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Nombres" />
+        android:hint="Nombres"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/txtApellidos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Apellidos" />
+        android:hint="Apellidos"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/txtFechaNacimiento"

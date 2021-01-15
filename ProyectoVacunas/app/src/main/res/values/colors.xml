@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+
     <color name="azul_primario">#00a5ff</color>
     <color name="azul_claro">#69d6ff</color>
     <color name="azul_oscuro">#0077cb</color>
@@ -16,5 +17,6 @@
     <color name="rojo_primario">#db504a</color>
     <color name="rojo_claro">#ff8276</color>
     <color name="rojo_oscuro">#a31922</color>
+
 
 </resources>

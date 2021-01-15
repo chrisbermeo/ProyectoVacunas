@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".GeneracionTurnos">
+
+    <TextView
+        android:id="@+id/textTurnos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Generacion de turnos"/>
+
+    <TextView
+        android:id="@+id/textSectores"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Seleccione el Sector:"/>
+
+    <Spinner
+        android:id="@+id/txtSector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/ComboSector"/>
+
+
+    <TextView
+        android:id="@+id/textTipoDeVacunas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Seleccione el tipo de vacuna:"/>
+    <Spinner
+        android:id="@+id/txtVacunas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/ComboVacunas"/>
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Seleccione el centro de acopio:"/>
+    <Spinner
+        android:id="@+id/txtCentrosAcopio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/ComboCentrosAcopio" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ubicación de Centros de Acopio en Google Maps:"/>
+    <Button
+        android:id="@+id/btnIrMaps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver en google maps"/>
+
+    <Button
+        android:id="@+id/btnGenerar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Generar"/>
+
+</LinearLayout>
