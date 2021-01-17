@@ -4,92 +4,116 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
     android:orientation="vertical"
     >
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Generacion de turnos" />
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Seleccione el Sector:" />
+    <LinearLayout
+        android:layout_width="380dp"
+        android:layout_height="2000px"
+        android:layout_gravity="center"
+        android:layout_marginTop="46px"
+        android:background="@drawable/login_redondeado"
+        android:orientation="vertical">
 
-    <Spinner
-        android:id="@+id/txtSector"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/ComboSector" />
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Generacion de turnos"
+            android:textColor="@color/black"
+            android:textSize="72px" />
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Seleccione el tipo de vacuna:" />
-
-    <Spinner
-        android:id="@+id/txtVacunas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/ComboVacunas" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Seleccione el centro de acopio:" />
-
-    <Spinner
-        android:id="@+id/txtCentrosAcopio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/ComboCentrosAcopio" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ubicación de Centros de Acopio en Google Maps:" />
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="503dp">
-
-        <fragment
-            android:id="@+id/map"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
+        <TextView
+            android:id="@+id/textView9"
             android:layout_width="match_parent"
-            android:layout_height="505dp"
-            tools:context=".MapsActivity" />
-        <Button
-            android:id="@+id/btnNormal"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Normal" />
+            android:text="Seleccione el Sector:" />
 
-        <Button
-            android:id="@+id/btnHibrido"
-            android:layout_width="wrap_content"
+        <Spinner
+            android:id="@+id/txtSector"
+            android:layout_width="177dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/btnNormal"
-            android:text="Hibrido" />
-        <Button
-            android:id="@+id/btnVolver"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="141dp"
-            android:layout_marginBottom="23dp"
-            android:text="Volver" />
+            android:entries="@array/ComboSector"
+            android:textColor="@color/black" />
 
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seleccione el tipo de vacuna:" />
+
+        <Spinner
+            android:id="@+id/txtVacunas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/ComboVacunas"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seleccione el centro de acopio:" />
+
+        <Spinner
+            android:id="@+id/txtCentrosAcopio"
+            android:layout_width="177dp"
+            android:layout_height="wrap_content"
+            android:entries="@array/ComboCentrosAcopio"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ubicación de Centros de Acopio en Google Maps:" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="530dp">
+
+            <fragment
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="530dp"
+                tools:context=".MapsActivity" />
+            <Button
+                android:id="@+id/btnNormal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Normal" />
+
+            <Button
+                android:id="@+id/btnHibrido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnNormal"
+                android:text="Hibrido" />
+            <Button
+                android:id="@+id/btnVolver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="141dp"
+                android:layout_marginBottom="23dp"
+                android:text="Volver" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
     <Button
         android:id="@+id/btnGenerar"
-        android:layout_width="match_parent"
+        android:layout_width="236dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="Generar" />
 </LinearLayout>
 
