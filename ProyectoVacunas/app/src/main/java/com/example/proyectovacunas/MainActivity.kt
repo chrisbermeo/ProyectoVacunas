@@ -36,14 +36,11 @@ class MainActivity : AppCompatActivity() {
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(txtCorreo.text.toString(),
                         txtPassword.text.toString()).addOnCompleteListener {
                     if (it.isSuccessful) {
-<<<<<<< HEAD
+//<<<<<<< HEAD
                         showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
-                        //irTurnos()
-=======
-                        //showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
-                        //irTurnos()
+//=======
                         consultarUsuarios()
->>>>>>> 6d96fc234037f77acf02e5e4562f3d49e98bc96f
+//>>>>>>> 6d96fc234037f77acf02e5e4562f3d49e98bc96f
                     } else {
                         showAlert()
                     }
@@ -83,10 +80,6 @@ class MainActivity : AppCompatActivity() {
         startActivity(irRegistro)
     }
 
-    /*fun irTurnos() {
-        val forma2 = Intent(this@MainActivity, GeneracionTurnos::class.java)
-        startActivity(forma2)
-    }*/
     fun consultarUsuarios(){
         val admin = UserSqliteOpenHelper(this, "BD_usuarios", null, 1)
         val bd = admin.writableDatabase

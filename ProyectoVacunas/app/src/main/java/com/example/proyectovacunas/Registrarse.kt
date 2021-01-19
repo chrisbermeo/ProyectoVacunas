@@ -72,12 +72,13 @@ class Registrarse : AppCompatActivity() {
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(txtCorreo.text.toString(),
                 txtPassword.text.toString()).addOnCompleteListener{
                     if(it.isSuccessful){
-<<<<<<< HEAD
-                        //addUsuario()  agregar en la base de datos local
-                        guardarFirebase()
-=======
+
+                        //<<<<<<< HEAD
                         addUsuario()
->>>>>>> 6d96fc234037f77acf02e5e4562f3d49e98bc96f
+                        guardarFirebase()
+//=======
+
+//>>>>>>> 6d96fc234037f77acf02e5e4562f3d49e98bc96f
                         showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
 
                     }else{
@@ -122,9 +123,9 @@ class Registrarse : AppCompatActivity() {
         val bd = admin.writableDatabase
         val user = ContentValues()
         user.put("cedula", txtCedula.getText().toString())
-        user.put("nombre", txtNombres.getText().toString())
-        user.put("apellido", txtApellidos.getText().toString())
-        user.put("fechaNacimiento", txtFechaNacimiento.getText().toString())
+        user.put("nombre", txtNombre.getText().toString())
+        user.put("apellido", txtApellido.getText().toString())
+        user.put("fechaNacimiento", txtFecha.getText().toString())
         user.put("correo", txtCorreo.getText().toString())
         user.put("password", txtPassword.getText().toString())
 
