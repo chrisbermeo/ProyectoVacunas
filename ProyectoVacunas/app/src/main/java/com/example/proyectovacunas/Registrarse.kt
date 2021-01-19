@@ -72,8 +72,12 @@ class Registrarse : AppCompatActivity() {
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(txtCorreo.text.toString(),
                 txtPassword.text.toString()).addOnCompleteListener{
                     if(it.isSuccessful){
+<<<<<<< HEAD
                         //addUsuario()  agregar en la base de datos local
                         guardarFirebase()
+=======
+                        addUsuario()
+>>>>>>> 6d96fc234037f77acf02e5e4562f3d49e98bc96f
                         showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
 
                     }else{
@@ -123,6 +127,7 @@ class Registrarse : AppCompatActivity() {
         user.put("fechaNacimiento", txtFechaNacimiento.getText().toString())
         user.put("correo", txtCorreo.getText().toString())
         user.put("password", txtPassword.getText().toString())
+
         if(bd.insert("usuario", null, user)>-1){
             Toast.makeText(this, "Usuario agregado", Toast.LENGTH_SHORT).show()
         }else{

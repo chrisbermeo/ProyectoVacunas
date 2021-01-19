@@ -24,10 +24,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoVacunas">
-
-        <activity android:name=".MenuActivity"></activity>
-
-        <activity android:name=".GeneracionTurnos"></activity>
+        <activity android:name=".ListadoTurnos"></activity>
+        <activity android:name=".MenuActivity" />
+        <activity android:name=".GeneracionTurnos" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -43,7 +42,6 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-
         <activity android:name=".Registrarse" />
         <activity android:name=".MainActivity">
             <intent-filter>
