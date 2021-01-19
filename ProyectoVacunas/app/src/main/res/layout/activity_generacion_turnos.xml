@@ -5,64 +5,74 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/login_bg"
     tools:context=".GeneracionTurnos">
 
-    <TextView
-        android:id="@+id/textTurnos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Generacion de turnos"/>
+    <LinearLayout
+        android:layout_width="1000px"
+        android:layout_height="328dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="450px"
+        android:background="@drawable/login_redondeado"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textSectores"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Seleccione el Sector:"/>
+        <TextView
+            android:id="@+id/textTurnos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Generacion de turnos"
+            android:textColor="@color/black"
+            android:textSize="72px" />
 
-    <Spinner
-        android:id="@+id/txtSector"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/ComboSector"/>
+        <TextView
+            android:id="@+id/textTipoDeVacunas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Seleccione el tipo de vacuna:" />
 
+        <Spinner
+            android:id="@+id/txtVacunas"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:entries="@array/ComboVacunas" />
 
-    <TextView
-        android:id="@+id/textTipoDeVacunas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Seleccione el tipo de vacuna:"/>
-    <Spinner
-        android:id="@+id/txtVacunas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/ComboVacunas"/>
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Seleccione el centro de acopio:" />
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Seleccione el centro de acopio:"/>
-    <Spinner
-        android:id="@+id/txtCentrosAcopio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/ComboCentrosAcopio" />
+        <Spinner
+            android:id="@+id/txtCentrosAcopio"
+            android:layout_width="211dp"
+            android:layout_height="wrap_content"
+            android:entries="@array/ComboCentrosAcopio" />
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ubicación de Centros de Acopio en Google Maps:"/>
-    <Button
-        android:id="@+id/btnIrMaps"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ver en google maps"/>
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Ubicación de Centro de Acopio en Google Maps:" />
 
-    <Button
-        android:id="@+id/btnGenerar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Generar"/>
+        <Button
+            android:id="@+id/btnIrMaps"
+            android:layout_width="71dp"
+            android:layout_height="35dp"
+            android:text="Ver en google maps " />
+
+        <Button
+            android:id="@+id/btnGenerar"
+            android:layout_width="238dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Generar" />
+
+    </LinearLayout>
 
 </LinearLayout>

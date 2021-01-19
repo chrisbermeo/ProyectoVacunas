@@ -16,71 +16,15 @@
         android:background="@drawable/login_redondeado"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="Generacion de turnos"
-            android:textColor="@color/black"
-            android:textSize="72px" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Seleccione el Sector:" />
-
-        <Spinner
-            android:id="@+id/txtSector"
-            android:layout_width="177dp"
-            android:layout_height="wrap_content"
-            android:entries="@array/ComboSector"
-            android:textColor="@color/black" />
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Seleccione el tipo de vacuna:" />
-
-        <Spinner
-            android:id="@+id/txtVacunas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:entries="@array/ComboVacunas"
-            android:textColor="@color/black" />
-
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Seleccione el centro de acopio:" />
-
-        <Spinner
-            android:id="@+id/txtCentrosAcopio"
-            android:layout_width="177dp"
-            android:layout_height="wrap_content"
-            android:entries="@array/ComboCentrosAcopio"
-            android:textColor="@color/black" />
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ubicación de Centros de Acopio en Google Maps:" />
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="530dp">
+            android:layout_height="735dp">
 
             <fragment
                 android:id="@+id/map"
                 android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="match_parent"
-                android:layout_height="530dp"
+                android:layout_height="730dp"
                 tools:context=".MapsActivity" />
             <Button
                 android:id="@+id/btnNormal"
@@ -108,12 +52,5 @@
 
     </LinearLayout>
 
-
-    <Button
-        android:id="@+id/btnGenerar"
-        android:layout_width="236dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Generar" />
 </LinearLayout>
 

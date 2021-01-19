@@ -69,7 +69,7 @@ class Registrarse : AppCompatActivity() {
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(txtCorreo.text.toString(),
                 txtPassword.text.toString()).addOnCompleteListener{
                     if(it.isSuccessful){
-                        //add()  agregar en la base de datos local
+                        //addUsuario()  agregar en la base de datos local
                         showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
                     }else{
                         showAlert()
@@ -96,7 +96,7 @@ class Registrarse : AppCompatActivity() {
         startActivity(homeIntent)
     }
 
-    fun add(){
+    fun addUsuario(){
         val admin = UserSqliteOpenHelper(this, "BD_usuarios", null, 1)
         val bd = admin.writableDatabase
         val user = ContentValues()

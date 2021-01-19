@@ -18,20 +18,12 @@ import com.google.android.gms.maps.model.MarkerOptions
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
-    lateinit var txtCentrosAcopio: Spinner
-    lateinit var txtSector: Spinner
-    lateinit var txtTipoVacuna: Spinner
     lateinit var btnHibrido: Button
     lateinit var btnNormal: Button
-    lateinit var btnGenerar: Button
     lateinit var btnVolver: Button
     fun init(){
-        txtCentrosAcopio = findViewById(R.id.txtCentrosAcopio)
-        txtSector = findViewById(R.id.txtSector)
-        txtTipoVacuna = findViewById(R.id.txtVacunas)
         btnHibrido = findViewById(R.id.btnHibrido)
         btnNormal = findViewById(R.id.btnNormal)
-        btnGenerar= findViewById(R.id.btnGenerar)
         btnVolver = findViewById(R.id.btnVolver)
         //pasar el id del usuario a la otra activity
         //para pasarle ese valor a la tabla de los turnos.
@@ -56,9 +48,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         btnVolver.setOnClickListener{
             val forma2 = Intent(this@MapsActivity, GeneracionTurnos::class.java)
             startActivity(forma2)
-        }
-        btnGenerar.setOnClickListener{
-            seleccionar()
         }
 
     }
@@ -91,11 +80,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.addMarker(MarkerOptions().position(CentroConvenciones).title("Centro de Convenciones").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(CentroConvenciones))
 
-    }
-    fun seleccionar(){
-        if (txtTipoVacuna.selectedItem.toString() == "Vector vaccines"){
-            Toast.makeText(this, "Selecciono la tercera", Toast.LENGTH_SHORT).show()
-        }
     }
 }
 
