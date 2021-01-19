@@ -10,15 +10,15 @@ import com.google.android.gms.maps.GoogleMap
 
 class GeneracionTurnos : AppCompatActivity() {
     lateinit var btnIr: Button
+    lateinit var btnGenerar: Button
     private lateinit var mMap: GoogleMap
     lateinit var txtCentrosAcopio: Spinner
-    lateinit var txtSector: Spinner
     lateinit var txtTipoVacuna: Spinner
     fun init(){
         btnIr = findViewById(R.id.btnIrMaps)
         txtCentrosAcopio = findViewById(R.id.txtCentrosAcopio)
-        txtSector = findViewById(R.id.txtSector)
         txtTipoVacuna = findViewById(R.id.txtVacunas)
+        btnGenerar = findViewById(R.id.btnGenerar)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
