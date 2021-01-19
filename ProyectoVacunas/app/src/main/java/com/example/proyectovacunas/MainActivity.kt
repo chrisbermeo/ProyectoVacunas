@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 
@@ -30,7 +31,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun setup() {
         btnIngresar.setOnClickListener() {
+
             if (txtCorreo.text.isNotEmpty() && txtPassword.text.isNotEmpty()) {
+                //consultarUsuarios()
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(txtCorreo.text.toString(),
                         txtPassword.text.toString()).addOnCompleteListener {
                     if (it.isSuccessful) {
@@ -40,6 +43,8 @@ class MainActivity : AppCompatActivity() {
                         showAlert()
                     }
                 }
+            }else{
+                showAlert()
             }
         }
 
@@ -72,6 +77,22 @@ class MainActivity : AppCompatActivity() {
         val forma2 = Intent(this@MainActivity, GeneracionTurnos::class.java)
         startActivity(forma2)
     }
+    fun consultarUsuarios(){
+        val admin = UserSqliteOpenHelper(this, "BD_usuarios", null, 1)
+        val bd = admin.writableDatabase
+        val fila = bd.rawQuery("SELECT id_usuario, correo, password FROM usuario", null)
+        while(fila.moveToNext()){
+            if ((fila.getString(1).equals(txtCorreo.getText().toString())) && (fila.getString(2).equals(txtPassword.getText().toString()) )){
+                //definir bien a donde hay que dirigirnos en este caso está al mapa
+                val forma2 = Intent(this@MainActivity, MapsActivity::class.java)
+                forma2.putExtra("id_usuario", fila.getString(0))
+                startActivity(forma2)
+                break
+            }
+        }
+        bd.close()
+    }
+
 }
 
 //=======

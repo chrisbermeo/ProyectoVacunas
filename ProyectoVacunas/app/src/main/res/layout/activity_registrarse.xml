@@ -13,13 +13,12 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registrate"
-        android:textColor="@color/black"
-        android:textSize="72px"
-        android:fontFamily="sans-serif-medium"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
-        />
+        android:fontFamily="sans-serif-medium"
+        android:text="Regístrate"
+        android:textColor="@color/black"
+        android:textSize="72px" />
 
     <LinearLayout
         android:layout_width="962px"
@@ -105,12 +104,12 @@
             android:id="@+id/btnRegistrarse"
             android:layout_width="641px"
             android:layout_height="108px"
-            android:text="Registrarse"
-            android:layout_marginTop="20dp"
             android:layout_gravity="center"
+            android:layout_marginTop="20dp"
             android:background="@drawable/btn_ingresar_login"
-            android:textColor="@drawable/txt_btn_ingresar"
-            />
+            android:backgroundTint="@color/rojo_primario"
+            android:text="Registrarse"
+            android:textColor="@drawable/txt_btn_ingresar" />
 
     </LinearLayout>
 

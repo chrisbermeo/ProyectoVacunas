@@ -33,6 +33,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         btnNormal = findViewById(R.id.btnNormal)
         btnGenerar= findViewById(R.id.btnGenerar)
         btnVolver = findViewById(R.id.btnVolver)
+        //pasar el id del usuario a la otra activity
+        //para pasarle ese valor a la tabla de los turnos.
+        //val id_usuario = intent.getStringExtra("id_usuario")
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
