@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
         val fila = bd.rawQuery("SELECT id_usuario, correo, password FROM usuario", null)
         while(fila.moveToNext()){
             if ((fila.getString(1).equals(txtCorreo.getText().toString())) && (fila.getString(2).equals(txtPassword.getText().toString()) )){
-                val forma2 = Intent(this@MainActivity, GeneracionTurnos::class.java)
+                val forma2 = Intent(this@MainActivity, MenuOpciones::class.java)
                 val Id_usuario = fila.getString(0)
                 forma2.putExtra("id_usuario", Id_usuario)
                 Toast.makeText(this, "$Id_usuario",  Toast.LENGTH_SHORT).show()

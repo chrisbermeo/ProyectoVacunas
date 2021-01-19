@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MenuOpciones">
+    <TextView
+        android:id="@+id/textMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Menú"
+        android:textColor="@color/black"
+        android:textSize="72px" />
+
+    <Button
+        android:id="@+id/btnGeneracion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Generacion de turno" />
+
+    <Button
+        android:id="@+id/btnInformacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Informacion de vacunas" />
+
+    <Button
+        android:id="@+id/btnTurno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver turno" />
+
+    <Button
+        android:id="@+id/btnSalir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cerrar Sesion" />
+
+
+</LinearLayout>

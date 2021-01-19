@@ -18,9 +18,9 @@ import com.google.android.gms.maps.model.MarkerOptions
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
-    lateinit var btnHibrido: Button
-    lateinit var btnNormal: Button
-    lateinit var btnVolver: Button
+    private lateinit var btnHibrido: Button
+    private lateinit var btnNormal: Button
+    private lateinit var btnVolver: Button
     fun init(){
         btnHibrido = findViewById(R.id.btnHibrido)
         btnNormal = findViewById(R.id.btnNormal)

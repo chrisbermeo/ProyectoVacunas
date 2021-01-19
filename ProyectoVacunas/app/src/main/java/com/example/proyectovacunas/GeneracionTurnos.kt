@@ -10,10 +10,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class GeneracionTurnos : AppCompatActivity() {
-    lateinit var btnIr: Button
-    lateinit var btnGenerar: Button
-    lateinit var txtCentrosAcopio: Spinner
-    lateinit var txtTipoVacuna: Spinner
+    private lateinit var btnIr: Button
+    private lateinit var btnGenerar: Button
+    private lateinit var txtCentrosAcopio: Spinner
+    private lateinit var txtTipoVacuna: Spinner
     var centro: String =""
     var id_usuario: String=""
     fun init(){
@@ -28,6 +28,10 @@ class GeneracionTurnos : AppCompatActivity() {
         init()
         val objetoIntent : Intent = intent
         id_usuario= objetoIntent.getStringExtra("id_usuario").toString()
+        irMapa()
+        btnGenerarTurno()
+    }
+    fun irMapa(){
         btnIr.setOnClickListener{
             val forma2 = Intent(this@GeneracionTurnos, MapsActivity::class.java)
             centro= txtCentrosAcopio.selectedItem.toString()
@@ -35,6 +39,8 @@ class GeneracionTurnos : AppCompatActivity() {
             forma2.putExtra("centro_acopio", centro)
             startActivity(forma2)
         }
+    }
+    fun btnGenerarTurno(){
         btnGenerar.setOnClickListener{
             if (consultarTurno()){
                 Toast.makeText(this, "Ya tiene un turno asignado", Toast.LENGTH_SHORT).show()
@@ -42,8 +48,7 @@ class GeneracionTurnos : AppCompatActivity() {
                 forma2.putExtra("fk_usuario", id_usuario)
                 startActivity(forma2)
             }else {
-                Toast.makeText(this, "Hay que agregarlo", Toast.LENGTH_SHORT).show()
-                //addTurno()
+                addTurno()
             }
         }
     }
@@ -72,7 +77,7 @@ class GeneracionTurnos : AppCompatActivity() {
             turno.put("url_maps", url)
         }
         if(bd.insert("turno", null, turno)>-1){
-            Toast.makeText(this, "Turno agregado", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Turno asignado", Toast.LENGTH_SHORT).show()
             val forma2 = Intent(this@GeneracionTurnos, ListadoTurnos::class.java)
             val fk_usuario= id_usuario
             forma2.putExtra("fk_usuario", fk_usuario)
@@ -89,7 +94,7 @@ class GeneracionTurnos : AppCompatActivity() {
         if(fila.moveToFirst()){
             return true
         }else {
-            Toast.makeText(this, "Usuario NO EXISTE", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Asignando turno", Toast.LENGTH_SHORT).show()
             return false
         }
         bd.close()
