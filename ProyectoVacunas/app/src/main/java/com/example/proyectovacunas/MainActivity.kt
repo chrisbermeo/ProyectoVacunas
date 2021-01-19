@@ -38,7 +38,8 @@ class MainActivity : AppCompatActivity() {
                         txtPassword.text.toString()).addOnCompleteListener {
                     if (it.isSuccessful) {
                         //showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
-                        irTurnos()
+                        //irTurnos()
+                        consultarUsuarios()
                     } else {
                         showAlert()
                     }
@@ -73,41 +74,24 @@ class MainActivity : AppCompatActivity() {
         startActivity(irRegistro)
     }
 
-    fun irTurnos() {
+    /*fun irTurnos() {
         val forma2 = Intent(this@MainActivity, GeneracionTurnos::class.java)
         startActivity(forma2)
-    }
+    }*/
     fun consultarUsuarios(){
         val admin = UserSqliteOpenHelper(this, "BD_usuarios", null, 1)
         val bd = admin.writableDatabase
         val fila = bd.rawQuery("SELECT id_usuario, correo, password FROM usuario", null)
         while(fila.moveToNext()){
             if ((fila.getString(1).equals(txtCorreo.getText().toString())) && (fila.getString(2).equals(txtPassword.getText().toString()) )){
-                //definir bien a donde hay que dirigirnos en este caso está al mapa
-                val forma2 = Intent(this@MainActivity, MapsActivity::class.java)
-                forma2.putExtra("id_usuario", fila.getString(0))
+                val forma2 = Intent(this@MainActivity, GeneracionTurnos::class.java)
+                val Id_usuario = fila.getString(0)
+                forma2.putExtra("id_usuario", Id_usuario)
+                Toast.makeText(this, "$Id_usuario",  Toast.LENGTH_SHORT).show()
                 startActivity(forma2)
                 break
             }
         }
         bd.close()
     }
-
 }
-
-//=======
-
-/*
-class MainActivity : AppCompatActivity() {
-    private lateinit var btnIngresar: Button
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        //probando la interfaz de mapa
-        btnIngresar = findViewById(R.id.btnIngresar)
-        btnIngresar.setOnClickListener{
-            val forma2 = Intent(this@MainActivity, GeneracionTurnos::class.java)
-            startActivity(forma2)
-        }
->>>>>>> 0b35b2b4493afe52737d47acaaebae9adc747477
-    }*/

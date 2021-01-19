@@ -4,10 +4,10 @@ import java.io.Serializable
 
 data class Usuario(
         //está en modo prueba
-        val cedula: String,
-        val nombre:String,
-        val apellido:String,
-        val fechaNacimiento: Int,
+        private var cedula: String,
+        private var nombre:String,
+        private var apellido:String,
+        private var fechaNacimiento: Int,
         val correo: String,
-        val password: String
+        private var password: String
 ): Serializable

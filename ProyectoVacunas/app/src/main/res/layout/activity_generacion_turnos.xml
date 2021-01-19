@@ -64,7 +64,7 @@
             android:id="@+id/btnIrMaps"
             android:layout_width="71dp"
             android:layout_height="35dp"
-            android:text="Ver en google maps " />
+            android:text="Ver" />
 
         <Button
             android:id="@+id/btnGenerar"
