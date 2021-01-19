@@ -36,19 +36,29 @@ class MainActivity : AppCompatActivity() {
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(txtCorreo.text.toString(),
                         txtPassword.text.toString()).addOnCompleteListener {
                     if (it.isSuccessful) {
+<<<<<<< HEAD
+                        showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
+                        //irTurnos()
+=======
                         //showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
                         //irTurnos()
                         consultarUsuarios()
+>>>>>>> 6d96fc234037f77acf02e5e4562f3d49e98bc96f
                     } else {
                         showAlert()
                     }
                 }
             }else{
-                Toast.makeText(this, "Campos vacios",  Toast.LENGTH_SHORT).show()
+                showAlert()
             }
         }
 
+        btnRegistrarse.setOnClickListener(){
+            registro()
+        }
+
     }
+
 
     private fun showAlert() {
         val builder = AlertDialog.Builder(this)
@@ -68,7 +78,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun registro(v: View) {
+    fun registro() {
         val irRegistro = Intent(this@MainActivity, Registrarse::class.java)
         startActivity(irRegistro)
     }
