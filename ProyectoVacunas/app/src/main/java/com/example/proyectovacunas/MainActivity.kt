@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity() {
         btnIngresar.setOnClickListener() {
 
             if (txtCorreo.text.isNotEmpty() && txtPassword.text.isNotEmpty()) {
-                //consultarUsuarios()
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(txtCorreo.text.toString(),
                         txtPassword.text.toString()).addOnCompleteListener {
                     if (it.isSuccessful) {
@@ -54,7 +53,7 @@ class MainActivity : AppCompatActivity() {
     private fun showAlert() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Error")
-        builder.setMessage("Se ha producido unu error de autenticacion del usuario")
+        builder.setMessage("Se ha producido un error de autenticacion del usuario")
         builder.setPositiveButton("Aceptar", null)
         val dialog: AlertDialog = builder.create()
         dialog.show()

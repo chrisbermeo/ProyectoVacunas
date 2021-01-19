@@ -3,6 +3,7 @@ package com.example.proyectovacunas
 import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.Toast
@@ -14,7 +15,7 @@ class GeneracionTurnos : AppCompatActivity() {
     lateinit var txtCentrosAcopio: Spinner
     lateinit var txtTipoVacuna: Spinner
     var centro: String =""
-
+    var id_usuario: String=""
     fun init(){
         btnIr = findViewById(R.id.btnIrMaps)
         txtCentrosAcopio = findViewById(R.id.txtCentrosAcopio)
@@ -25,7 +26,8 @@ class GeneracionTurnos : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_generacion_turnos)
         init()
-
+        val objetoIntent : Intent = intent
+        id_usuario= objetoIntent.getStringExtra("id_usuario").toString()
         btnIr.setOnClickListener{
             val forma2 = Intent(this@GeneracionTurnos, MapsActivity::class.java)
             centro= txtCentrosAcopio.selectedItem.toString()
@@ -34,15 +36,22 @@ class GeneracionTurnos : AppCompatActivity() {
             startActivity(forma2)
         }
         btnGenerar.setOnClickListener{
-            addTurno()
+            if (consultarTurno()){
+                Toast.makeText(this, "Ya tiene un turno asignado", Toast.LENGTH_SHORT).show()
+                val forma2 = Intent(this@GeneracionTurnos, ListadoTurnos::class.java)
+                forma2.putExtra("fk_usuario", id_usuario)
+                startActivity(forma2)
+            }else {
+                Toast.makeText(this, "Hay que agregarlo", Toast.LENGTH_SHORT).show()
+                //addTurno()
+            }
         }
     }
     fun addTurno(){
         val admin = UserSqliteOpenHelper(this, "BD_usuarios", null, 1)
         val bd = admin.writableDatabase
         val turno = ContentValues()
-        val objetoIntent : Intent = intent
-        var id_usuario= objetoIntent.getStringExtra("id_usuario")
+
         turno.put("fk_id_usuario", id_usuario)
         turno.put("tipo_vacuna", txtTipoVacuna.selectedItem.toString())
         turno.put("centro_acopio", txtCentrosAcopio.selectedItem.toString())
@@ -64,8 +73,24 @@ class GeneracionTurnos : AppCompatActivity() {
         }
         if(bd.insert("turno", null, turno)>-1){
             Toast.makeText(this, "Turno agregado", Toast.LENGTH_SHORT).show()
+            val forma2 = Intent(this@GeneracionTurnos, ListadoTurnos::class.java)
+            val fk_usuario= id_usuario
+            forma2.putExtra("fk_usuario", fk_usuario)
+            startActivity(forma2)
         }else{
             Toast.makeText(this, "Turno NO agregado", Toast.LENGTH_SHORT).show()
+        }
+        bd.close()
+    }
+    fun consultarTurno(): Boolean{
+        val admin = UserSqliteOpenHelper(this, "BD_usuarios", null, 1)
+        val bd = admin.writableDatabase
+        val fila = bd.rawQuery("SELECT fk_id_usuario, tipo_vacuna, centro_acopio, url_maps FROM turno WHERE fk_id_usuario='$id_usuario'", null)
+        if(fila.moveToFirst()){
+            return true
+        }else {
+            Toast.makeText(this, "Usuario NO EXISTE", Toast.LENGTH_SHORT).show()
+            return false
         }
         bd.close()
     }
