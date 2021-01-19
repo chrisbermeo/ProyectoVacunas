@@ -13,6 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import java.security.Provider
 
 class Registrarse : AppCompatActivity() {
@@ -37,6 +38,8 @@ class Registrarse : AppCompatActivity() {
         txtApellido = findViewById(R.id.txtApellidos)
         txtCedula = findViewById(R.id.txtCedula)
     }
+
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,7 +73,9 @@ class Registrarse : AppCompatActivity() {
                 txtPassword.text.toString()).addOnCompleteListener{
                     if(it.isSuccessful){
                         //addUsuario()  agregar en la base de datos local
+                        guardarFirebase()
                         showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
+
                     }else{
                         showAlert()
                     }
@@ -79,10 +84,22 @@ class Registrarse : AppCompatActivity() {
         }
     }
 
+    private fun guardarFirebase(){
+        db.collection("users").document(txtCorreo.text.toString()).set(
+            hashMapOf("cedula" to txtCedula.text.toString(),
+            "nombres" to txtNombre.text.toString(),
+            "apellidos" to txtApellido.text.toString(),
+            "fecha_nacimiento" to txtFecha.text.toString(),
+            "vacuna" to "",
+            "centro_medico" to "")
+        )   //Se crea una colección de datos para guardar los datos de todos los usuarios
+    }
+
+
     private fun showAlert(){
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Error")
-        builder.setMessage("Se ha producido un error autenticando al usuario")
+        builder.setMessage("No se ha podido registrar al usuario, por favor intentenlo de nuevo.")
         builder.setPositiveButton("Aceptar",null)
         val dialog : AlertDialog = builder.create()
         dialog.show()

@@ -46,7 +46,7 @@
             android:layout_width="871px"
             android:layout_height="136.5px"
             android:ems="10"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             android:layout_marginBottom="20dp"
             android:layout_gravity="center"
             />
@@ -92,7 +92,6 @@
             android:layout_gravity="center"
             android:background="@drawable/btn_ingresar_login"
             android:textColor="@drawable/txt_btn_ingresar"
-            android:onClick="registro"
             />
 
 

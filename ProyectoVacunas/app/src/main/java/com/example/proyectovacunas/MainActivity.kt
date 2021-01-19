@@ -37,8 +37,8 @@ class MainActivity : AppCompatActivity() {
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(txtCorreo.text.toString(),
                         txtPassword.text.toString()).addOnCompleteListener {
                     if (it.isSuccessful) {
-                        //showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
-                        irTurnos()
+                        showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
+                        //irTurnos()
                     } else {
                         showAlert()
                     }
@@ -48,7 +48,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        btnRegistrarse.setOnClickListener(){
+            registro()
+        }
+
     }
+
 
     private fun showAlert() {
         val builder = AlertDialog.Builder(this)
@@ -68,7 +73,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun registro(v: View) {
+    fun registro() {
         val irRegistro = Intent(this@MainActivity, Registrarse::class.java)
         startActivity(irRegistro)
     }

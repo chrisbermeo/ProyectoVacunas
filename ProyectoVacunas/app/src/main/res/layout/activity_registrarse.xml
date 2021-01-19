@@ -68,12 +68,8 @@
             android:layout_width="871px"
             android:layout_height="136.5px"
             android:ems="10"
-            android:inputType="date"
-            android:focusable="false"
-            android:clickable="true"
-            android:onClick="registro"
-            android:maxLines="1"
             android:hint="Fecha de Nacimiento"
+            android:inputType="textCapCharacters"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
             />
