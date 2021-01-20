@@ -1,13 +1,15 @@
 package com.example.proyectovacunas
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
-import android.view.View
+import android.text.SpannableString
+import android.text.style.UnderlineSpan
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+
 
 class ListadoTurnos : AppCompatActivity() {
     private lateinit var btnSalir: Button
@@ -39,6 +41,7 @@ class ListadoTurnos : AppCompatActivity() {
         datosUsuario()
         buscarTurno()
         click_atras()
+
         btnSalir.setOnClickListener{
             //debe cerrar sesion
         }
@@ -59,6 +62,14 @@ class ListadoTurnos : AppCompatActivity() {
             txtVacuna.setText(fila.getString(0))
             txtCentroAcopio.setText(fila.getString(1))
             txtUrlMaps.setText(fila.getString(2))
+            val content = SpannableString(txtUrlMaps.text.toString())
+            content.setSpan(UnderlineSpan(), 0, txtUrlMaps.length(), 0)
+            txtUrlMaps.setText(content)
+            txtUrlMaps.setOnClickListener(){
+                val i = Intent(Intent.ACTION_VIEW)
+                i.data = Uri.parse(txtUrlMaps.text.toString())
+                startActivity(i)
+            }
         }else {
             Toast.makeText(this, "Usuario NO Tiene turno", Toast.LENGTH_SHORT).show()
             this.finish()

@@ -25,23 +25,20 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         btnHibrido = findViewById(R.id.btnHibrido)
         btnNormal = findViewById(R.id.btnNormal)
         btnVolver = findViewById(R.id.btnVolver)
-        //pasar el id del usuario a la otra activity
-        //para pasarle ese valor a la tabla de los turnos.
-        //val id_usuario = intent.getStringExtra("id_usuario")
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
         init()
-        //Mapa satelital
+
         btnHibrido.setOnClickListener{
             mMap.mapType = GoogleMap.MAP_TYPE_HYBRID
         }
-        //Mpaa normal
+
         btnNormal.setOnClickListener{
             mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
         }
