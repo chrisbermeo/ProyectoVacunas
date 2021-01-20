@@ -10,9 +10,9 @@
 
     <LinearLayout
         android:layout_width="1000px"
-        android:layout_height="328dp"
+        android:layout_height="450dp"
         android:layout_gravity="center"
-        android:layout_marginTop="450px"
+        android:layout_marginTop="300px"
         android:background="@drawable/login_redondeado"
         android:orientation="vertical">
 
@@ -65,6 +65,34 @@
             android:layout_width="71dp"
             android:layout_height="35dp"
             android:text="Ver" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seleccione la fecha:" />
+
+        <EditText
+            android:id="@+id/txt_Fecha"
+            android:layout_width="wrap_content"
+            android:layout_height="37dp"
+            android:ems="10"
+            android:hint="Fecha"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seleccione la hora:" />
+
+        <EditText
+            android:id="@+id/txt_hora"
+            android:layout_width="wrap_content"
+            android:layout_height="37dp"
+            android:ems="10"
+            android:hint="Hora"
+            android:inputType="textPersonName" />
 
         <Button
             android:id="@+id/btnGenerar"

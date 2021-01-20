@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,8 @@ class GeneracionTurnos : AppCompatActivity() {
     private lateinit var btnGenerar: Button
     private lateinit var txtCentrosAcopio: Spinner
     private lateinit var txtTipoVacuna: Spinner
+    private lateinit var txt_Fecha: EditText
+    private lateinit var txt_Hora: EditText
     var centro: String =""
     var id_usuario: String=""
     fun init(){
@@ -21,6 +24,8 @@ class GeneracionTurnos : AppCompatActivity() {
         txtCentrosAcopio = findViewById(R.id.txtCentrosAcopio)
         txtTipoVacuna = findViewById(R.id.txtVacunas)
         btnGenerar = findViewById(R.id.btnGenerar)
+        txt_Fecha = findViewById(R.id.txt_Fecha)
+        txt_Hora = findViewById(R.id.txt_hora)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
