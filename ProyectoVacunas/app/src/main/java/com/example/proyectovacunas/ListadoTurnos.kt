@@ -20,6 +20,8 @@ class ListadoTurnos : AppCompatActivity() {
     private lateinit var txtUrlMaps: TextView
     private lateinit var txtNombres: TextView
     private lateinit var txtApellidos: TextView
+    private lateinit var txtFechaTurno: TextView
+    private lateinit var txtHoraTurno: TextView
 
     var fk_usuario: String=""
     fun init(){
@@ -31,6 +33,8 @@ class ListadoTurnos : AppCompatActivity() {
         txtUrlMaps = findViewById(R.id.txt_urlMaps)
         txtNombres = findViewById(R.id.txt_nombres)
         txtApellidos = findViewById(R.id.txt_apellidos)
+        txtFechaTurno = findViewById(R.id.txtFechaTurno)
+        txtHoraTurno = findViewById(R.id.txtHoraTurno)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,9 +59,9 @@ class ListadoTurnos : AppCompatActivity() {
     }
     fun buscarTurno(){
         //Conexion a la base de datos
-        val admin = UserSqliteOpenHelper(this, "BD_usuarios", null, 1)
+        val admin = UserSqliteOpenHelper(this, "Bd_usuarios", null, 1)
         val bd = admin.writableDatabase
-        val fila = bd.rawQuery("SELECT tipo_vacuna, centro_acopio, url_maps FROM turno WHERE fk_id_usuario='${fk_usuario}'", null)
+        val fila = bd.rawQuery("SELECT tipo_vacuna, centro_acopio, url_maps, fecha, hora FROM turno WHERE fk_id_usuario='${fk_usuario}'", null)
         if(fila.moveToFirst()){
             txtVacuna.setText(fila.getString(0))
             txtCentroAcopio.setText(fila.getString(1))
@@ -70,6 +74,9 @@ class ListadoTurnos : AppCompatActivity() {
                 i.data = Uri.parse(txtUrlMaps.text.toString())
                 startActivity(i)
             }
+            txtFechaTurno.setText(fila.getString(3))
+            txtHoraTurno.setText(fila.getString(4))
+
         }else {
             Toast.makeText(this, "Usuario NO Tiene turno", Toast.LENGTH_SHORT).show()
             this.finish()
@@ -77,7 +84,7 @@ class ListadoTurnos : AppCompatActivity() {
         bd.close()
     }
     fun datosUsuario(){
-        val admin = UserSqliteOpenHelper(this, "BD_usuarios", null, 1)
+        val admin = UserSqliteOpenHelper(this, "Bd_usuarios", null, 1)
         val bd = admin.writableDatabase
         val fila = bd.rawQuery("SELECT cedula, nombre, apellido FROM usuario WHERE id_usuario='${fk_usuario}'", null)
         if(fila.moveToFirst()){

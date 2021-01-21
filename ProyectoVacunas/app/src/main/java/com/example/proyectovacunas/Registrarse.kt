@@ -72,7 +72,7 @@ class Registrarse : AppCompatActivity() {
                 Toast.makeText(this, "Por favor llenar todos los campos", Toast.LENGTH_SHORT).show()
 
             }else if (txtCedula.text.toString().length>=11 || txtCedula.text.toString().length<=9  ){
-                Toast.makeText(this, "Por favor ;a cedula consta de 10 digitos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Por favor la cedula consta de 10 digitos", Toast.LENGTH_SHORT).show()
             }else{
                     FirebaseAuth.getInstance().createUserWithEmailAndPassword(txtCorreo.text.toString(),
                             txtPassword.text.toString()).addOnCompleteListener{
@@ -118,7 +118,7 @@ class Registrarse : AppCompatActivity() {
     }
 
     fun addUsuario(){
-        val admin = UserSqliteOpenHelper(this, "BD_usuarios", null, 1)
+        val admin = UserSqliteOpenHelper(this, "Bd_usuarios", null, 1)
         val bd = admin.writableDatabase
         val user = ContentValues()
         user.put("cedula", txtCedula.getText().toString())

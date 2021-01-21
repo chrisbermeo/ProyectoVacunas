@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun consultarUsuarios(){
-        val admin = UserSqliteOpenHelper(this, "BD_usuarios", null, 1)
+        val admin = UserSqliteOpenHelper(this, "Bd_usuarios", null, 1)
         val bd = admin.writableDatabase
         val fila = bd.rawQuery("SELECT id_usuario, correo, password FROM usuario", null)
         while(fila.moveToNext()){

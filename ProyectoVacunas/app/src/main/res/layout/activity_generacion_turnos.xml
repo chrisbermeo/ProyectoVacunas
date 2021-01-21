@@ -75,7 +75,7 @@
         <EditText
             android:id="@+id/txt_Fecha"
             android:layout_width="wrap_content"
-            android:layout_height="37dp"
+            android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Fecha"
             android:inputType="textPersonName" />
@@ -89,7 +89,7 @@
         <EditText
             android:id="@+id/txt_hora"
             android:layout_width="wrap_content"
-            android:layout_height="37dp"
+            android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Hora"
             android:inputType="textPersonName" />
