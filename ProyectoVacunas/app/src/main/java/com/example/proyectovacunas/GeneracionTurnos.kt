@@ -42,7 +42,7 @@ class GeneracionTurnos : AppCompatActivity() {
         val objetoIntent : Intent = intent
         id_usuario= objetoIntent.getStringExtra("id_usuario").toString()
         email= objetoIntent.getStringExtra("email").toString()
-        centro =txtCentrosAcopio.selectedItem.toString()
+        centro= txtCentrosAcopio.selectedItem.toString()
         irMapa()
         btnGenerarTurno()
 
@@ -161,6 +161,7 @@ class GeneracionTurnos : AppCompatActivity() {
         val bd = admin.writableDatabase
         val fecha= txt_Fecha.text.toString()
         val hora= txt_Hora.text.toString()
+        //Toast.makeText(this, "$fecha, $hora, $centro", Toast.LENGTH_SHORT).show()
         val fila = bd.rawQuery("SELECT fk_id_usuario FROM turno WHERE fecha='$fecha' AND hora='$hora' AND centro_acopio='$centro'", null)
         if(fila.moveToFirst()){
             Toast.makeText(this, "Verificando....", Toast.LENGTH_SHORT).show()

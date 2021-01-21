@@ -53,8 +53,8 @@ class MenuOpciones : AppCompatActivity() {
     }
     fun click_Informacion(){
         btnInformacion.setOnClickListener{
-            //val forma2 = Intent(this@MenuOpciones, Informacion::class.java)
-            //startActivity(forma2)
+            val forma2 = Intent(this@MenuOpciones, InformacionVacunas::class.java)
+            startActivity(forma2)
         }
     }
     fun click_Turno(){

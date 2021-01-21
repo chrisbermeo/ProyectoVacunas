@@ -116,35 +116,34 @@ class Registrarse : AppCompatActivity() {
     private fun setup() {
         title = "Autenticación"
         btnRegistrarse.setOnClickListener() {
+            if (txtCedula.text.isEmpty() || txtNombre.text.isEmpty() || txtApellido.text.isEmpty() || txtFecha.text.isEmpty() || txtCorreo.text.isEmpty() || txtPassword.text.isEmpty()) {
+                Toast.makeText(
+                        this,
+                        "Por favor llenar todos los campos",
+                        Toast.LENGTH_SHORT
+                ).show()
 
-                    if (txtCedula.text.isEmpty() || txtNombre.text.isEmpty() || txtApellido.text.isEmpty() || txtFecha.text.isEmpty() || txtCorreo.text.isEmpty() || txtPassword.text.isEmpty()) {
-                        Toast.makeText(
-                            this,
-                            "Por favor llenar todos los campos",
-                            Toast.LENGTH_SHORT
-                        ).show()
-
-                    } else if (txtCedula.text.toString().length >= 11 || txtCedula.text.toString().length <= 9) {
-                        Toast.makeText(
-                            this,
-                            "Por favor la cedula consta de 10 digitos",
-                            Toast.LENGTH_SHORT
-                        ).show()
+            } else if (txtCedula.text.toString().length >= 11 || txtCedula.text.toString().length <= 9) {
+                Toast.makeText(
+                        this,
+                        "Por favor la cedula consta de 10 digitos",
+                        Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                FirebaseAuth.getInstance().createUserWithEmailAndPassword(
+                        txtCorreo.text.toString(),
+                        txtPassword.text.toString()
+                ).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        addUsuario()
+                        guardarFirebase()
+                        showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
                     } else {
-                        FirebaseAuth.getInstance().createUserWithEmailAndPassword(
-                            txtCorreo.text.toString(),
-                            txtPassword.text.toString()
-                        ).addOnCompleteListener {
-                            if (it.isSuccessful) {
-                                addUsuario()
-                                guardarFirebase()
-                                showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
-                            } else {
-                                showAlert()
-                            }
-
-                        }
+                        showAlert()
                     }
                 }
             }
         }
+    }
+
+}
