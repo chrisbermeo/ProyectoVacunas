@@ -67,12 +67,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap = googleMap
         val objetoIntent2 : Intent = intent
         var ubicacion= objetoIntent2.getStringExtra("centro_acopio")
-        if (ubicacion == "Hospital los ceibos"){
+        if (ubicacion == "Hospital los Ceibos"){
             val hospitalCeibos = LatLng(-2.1745623,-79.9434742)
             mMap.addMarker(MarkerOptions().position(hospitalCeibos).title("Hospital Ceibos").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)))
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(hospitalCeibos, 15.0f))
         }
-        if (ubicacion == "Centro de convenciones"){
+        if (ubicacion == "Centro de Convenciones"){
             val  CentroConvenciones= LatLng(-2.158733,-79.8895206)
             mMap.addMarker(MarkerOptions().position(CentroConvenciones).title("Centro de Convenciones").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)))
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(CentroConvenciones, 15.0f))
@@ -82,7 +82,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             mMap.addMarker(MarkerOptions().position(MaternidadSotomayor).title("Maternidad Sotomayor").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)))
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(MaternidadSotomayor, 15.0f))
         }
-        if (ubicacion == "Hospital del guasmo Sur"){
+        if (ubicacion == "Hospital del Guasmo Sur"){
             val hospitalGuasmo = LatLng(-2.276769,-79.8975766)
             mMap.addMarker(MarkerOptions().position(hospitalGuasmo).title("Hospital Guasmo").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)))
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(hospitalGuasmo, 15.0f))

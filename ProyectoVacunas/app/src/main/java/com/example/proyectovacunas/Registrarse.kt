@@ -74,8 +74,18 @@ class Registrarse : AppCompatActivity() {
         dialog.show()
     }
 
+    private fun alertCedula() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Error")
+        builder.setMessage("La cédula está incorrecta.")
+        builder.setPositiveButton("Intentar de nuevo.", null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
+    }
+
+
     private fun showHome(email: String, provider: ProviderType) {
-        val homeIntent = Intent(this, MenuOpciones::class.java).apply {
+        val homeIntent = Intent(this, MainActivity::class.java).apply {
             putExtra("email", email)
             putExtra("provider", provider.name)
         }
@@ -104,19 +114,6 @@ class Registrarse : AppCompatActivity() {
     private fun setup() {
         title = "Autenticación"
         btnRegistrarse.setOnClickListener() {
-
-            if (txtCorreo.text.isNotEmpty() && txtPassword.text.isNotEmpty()) {
-                FirebaseAuth.getInstance().createUserWithEmailAndPassword(
-                    txtCorreo.text.toString(),
-                    txtPassword.text.toString()
-                ).addOnCompleteListener {
-                    if (it.isSuccessful) {
-                        guardarFirebase()
-                        addUsuario()
-                        showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
-                    } else {
-                        showAlert()
-                    }
 
                     if (txtCedula.text.isEmpty() || txtNombre.text.isEmpty() || txtApellido.text.isEmpty() || txtFecha.text.isEmpty() || txtCorreo.text.isEmpty() || txtPassword.text.isEmpty()) {
                         Toast.makeText(
@@ -149,5 +146,3 @@ class Registrarse : AppCompatActivity() {
                 }
             }
         }
-    }
-}

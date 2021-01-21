@@ -6,17 +6,20 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.cardview.widget.CardView
+import com.google.firebase.auth.FirebaseAuth
 
 class MenuOpciones : AppCompatActivity() {
     private lateinit var btnGeneracion: CardView
     private lateinit var btnInformacion: CardView
     private lateinit var btnTurno: CardView
+    private lateinit var btnSalir: Button
     var id_usuario: String=""
     var email: String=""
     fun init(){
         btnGeneracion = findViewById(R.id.btnGeneracion)
         btnInformacion = findViewById(R.id.btnInformacion)
         btnTurno = findViewById(R.id.btnTurno)
+        btnSalir = findViewById(R.id.btnSalir)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +57,11 @@ class MenuOpciones : AppCompatActivity() {
         }
     }
     fun click_CerrarSesion(){
-        //codigo de cerrar sesion
+        btnSalir.setOnClickListener{
+            FirebaseAuth.getInstance().signOut()
+            val forma2 = Intent(this@MenuOpciones, MainActivity::class.java)
+            startActivity(forma2)
+        }
+
     }
 }
