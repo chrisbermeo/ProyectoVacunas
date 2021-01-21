@@ -3,12 +3,12 @@
     <string-array name="ComboVacunas">
         <item>ARNm-Pfizer</item>
         <item>Moderna</item>
-        <item>Vector vaccines</item>
+        <item>Vector Vaccines</item>
     </string-array>
     <string-array name="ComboCentrosAcopio">
-        <item>Hospital del guasmo Sur</item>
-        <item>Hospital los ceibos</item>
-        <item>Centro de convenciones</item>
+        <item>Hospital del Guasmo Sur</item>
+        <item>Hospital los Ceibos</item>
+        <item>Centro de Convenciones</item>
         <item>Maternidad Enrique Sotomayor</item>
     </string-array>
     <string name="title_activity_maps">Map</string>

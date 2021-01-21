@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.ProyectoVacunas" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/azul_primario</item>
+        <item name="colorPrimary">@color/rojo_primario</item>
         <item name="colorPrimaryVariant">@color/azul_oscuro</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->

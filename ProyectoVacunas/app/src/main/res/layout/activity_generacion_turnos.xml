@@ -10,11 +10,12 @@
 
     <LinearLayout
         android:layout_width="1000px"
-        android:layout_height="328dp"
+        android:layout_height="1100px"
         android:layout_gravity="center"
-        android:layout_marginTop="450px"
+        android:layout_marginTop="200px"
         android:background="@drawable/login_redondeado"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <TextView
             android:id="@+id/textTurnos"
@@ -22,56 +23,79 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:fontFamily="sans-serif-medium"
+            android:fontFamily="@font/pt_serif"
             android:text="Generacion de turnos"
             android:textColor="@color/black"
-            android:textSize="72px" />
+            android:textSize="72px"
+            />
 
         <TextView
             android:id="@+id/textTipoDeVacunas"
-            android:layout_width="match_parent"
+            android:layout_width="871px"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Seleccione el tipo de vacuna:" />
+            android:layout_gravity="center"
+            android:text="Seleccione el tipo de vacuna:"
+            android:fontFamily="@font/pt_serif"
+            />
 
         <Spinner
             android:id="@+id/txtVacunas"
-            android:layout_width="210dp"
+            android:layout_width="871px"
             android:layout_height="wrap_content"
-            android:entries="@array/ComboVacunas" />
+            android:entries="@array/ComboVacunas"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            />
 
         <TextView
             android:id="@+id/textView11"
-            android:layout_width="match_parent"
+            android:layout_width="871px"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Seleccione el centro de acopio:" />
+            android:text="Seleccione el centro de acopio:"
+            android:fontFamily="@font/pt_serif"
+            android:layout_gravity="center"
+            />
 
         <Spinner
             android:id="@+id/txtCentrosAcopio"
-            android:layout_width="211dp"
+            android:layout_width="871px"
             android:layout_height="wrap_content"
-            android:entries="@array/ComboCentrosAcopio" />
+            android:entries="@array/ComboCentrosAcopio"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            />
 
             <TextView
                 android:id="@+id/textView12"
-                android:layout_width="wrap_content"
+                android:layout_width="871px"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Ubicación de Centro de Acopio en Google Maps:" />
+                android:text="Ubicación de Centro de Acopio en Google Maps:"
+                android:fontFamily="@font/pt_serif"
+                android:layout_gravity="center"
+                />
 
         <Button
             android:id="@+id/btnIrMaps"
-            android:layout_width="71dp"
-            android:layout_height="35dp"
-            android:text="Ver" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ver Ubicación en google maps"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_ingresar_login"
+            />
 
         <Button
             android:id="@+id/btnGenerar"
             android:layout_width="238dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Generar" />
+            android:text="Generar turno"
+            android:background="@drawable/btn_ingresar_login"
+            android:layout_marginTop="20dp"
+            />
 
     </LinearLayout>
 

@@ -9,25 +9,27 @@
     android:background="@drawable/login_bg"
     >
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="40dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="Regístrate"
-        android:textColor="@color/black"
-        android:textSize="72px" />
+
 
     <LinearLayout
         android:layout_width="962px"
-        android:layout_height="1190px"
+        android:layout_height="1370px"
         android:orientation="vertical"
         android:background="@drawable/login_redondeado"
         android:layout_gravity="center"
-        android:layout_marginTop="100px"
+        android:layout_marginTop="200px"
         >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/pt_serif"
+            android:text="Regístrate"
+            android:textColor="@color/black"
+            android:textSize="72px" />
 
         <EditText
             android:id="@+id/txtCedula"
@@ -38,7 +40,7 @@
             android:hint="Cédula"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
-
+            android:fontFamily="@font/pt_sans_caption"
             />
 
         <EditText
@@ -50,6 +52,7 @@
             android:inputType="textCapCharacters"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
+            android:fontFamily="@font/pt_sans_caption"
             />
 
         <EditText
@@ -61,6 +64,7 @@
             android:inputType="textCapCharacters"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
+            android:fontFamily="@font/pt_sans_caption"
             />
 
         <EditText
@@ -75,6 +79,7 @@
             android:inputType="textCapCharacters"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
+            android:fontFamily="@font/pt_sans_caption"
             />
 
         <EditText
@@ -86,6 +91,7 @@
             android:hint="Correo"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
+            android:fontFamily="@font/pt_sans_caption"
             />
 
         <EditText
@@ -97,6 +103,7 @@
             android:hint="Contraseña"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
+            android:fontFamily="@font/pt_sans_caption"
             />
 
         <Button
@@ -104,7 +111,7 @@
             android:layout_width="641px"
             android:layout_height="108px"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/btn_ingresar_login"
             android:backgroundTint="@color/rojo_primario"
             android:text="Registrarse"

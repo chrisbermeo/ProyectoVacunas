@@ -24,7 +24,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoVacunas">
-        <activity android:name=".ListadoTurnos"></activity>
+        <activity android:name=".MenuOpciones"></activity>
+        <activity android:name=".ListadoTurnos" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".GeneracionTurnos" />
         <!--

@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 
 class ListadoTurnos : AppCompatActivity() {
     private lateinit var btnSalir: Button
@@ -18,6 +19,7 @@ class ListadoTurnos : AppCompatActivity() {
     private lateinit var txtUrlMaps: TextView
     private lateinit var txtNombres: TextView
     private lateinit var txtApellidos: TextView
+
     var fk_usuario: String=""
     fun init(){
         btnSalir = findViewById(R.id.btn_Salir)
@@ -37,11 +39,26 @@ class ListadoTurnos : AppCompatActivity() {
         fk_usuario= objetoIntent.getStringExtra("fk_usuario").toString()
         datosUsuario()
         buscarTurno()
-        btnAtras.setOnClickListener{
-            //debe ir al menos
-        }
+        click_atras()
         btnSalir.setOnClickListener{
             //debe cerrar sesion
+        }
+    }
+
+    private fun turnoAlerta() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Turno")
+        builder.setMessage("Usted no tiene un turno asignado.")
+        builder.setPositiveButton("Aceptar", null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
+    }
+
+    fun click_atras(){
+        btnAtras.setOnClickListener{
+            val forma2 = Intent(this@ListadoTurnos, MenuOpciones::class.java)
+            forma2.putExtra("id_usuario", fk_usuario)
+            startActivity(forma2)
         }
     }
     fun buscarTurno(){
@@ -54,7 +71,8 @@ class ListadoTurnos : AppCompatActivity() {
             txtCentroAcopio.setText(fila.getString(1))
             txtUrlMaps.setText(fila.getString(2))
         }else {
-            Toast.makeText(this, "Usuario NO EXISTE", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Usuario NO Tiene turno", Toast.LENGTH_SHORT).show()
+            this.finish()
         }
         bd.close()
     }
@@ -67,9 +85,10 @@ class ListadoTurnos : AppCompatActivity() {
             txtNombres.setText(fila.getString(1))
             txtApellidos.setText(fila.getString(2))
         }else {
-            Toast.makeText(this, "Usuario NO EXISTE", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Error en obtener datos usuario", Toast.LENGTH_SHORT).show()
         }
         bd.close()
     }
+
 
 }

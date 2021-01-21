@@ -18,5 +18,12 @@
     <color name="rojo_claro">#ff8276</color>
     <color name="rojo_oscuro">#a31922</color>
 
+    <color name="verde_editText">#56A3A6</color>
+    <color name="azul_texto">#0F7898</color>
+
+
+
+
+
 
 </resources>
