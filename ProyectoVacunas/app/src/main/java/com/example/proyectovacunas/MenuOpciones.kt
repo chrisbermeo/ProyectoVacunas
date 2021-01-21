@@ -5,11 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import androidx.cardview.widget.CardView
 
 class MenuOpciones : AppCompatActivity() {
-    private lateinit var btnGeneracion: Button
-    private lateinit var btnInformacion: Button
-    private lateinit var btnTurno: Button
+    private lateinit var btnGeneracion: CardView
+    private lateinit var btnInformacion: CardView
+    private lateinit var btnTurno: CardView
     var id_usuario: String=""
     var email: String=""
     fun init(){

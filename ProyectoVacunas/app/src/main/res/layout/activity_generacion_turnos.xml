@@ -10,9 +10,9 @@
 
     <LinearLayout
         android:layout_width="1000px"
-        android:layout_height="1100px"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="125px"
         android:layout_gravity="center"
-        android:layout_marginTop="200px"
         android:background="@drawable/login_redondeado"
         android:orientation="vertical"
         >
@@ -67,6 +67,47 @@
             android:layout_gravity="center"
             />
 
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="871px"
+            android:layout_height="wrap_content"
+            android:text="Seleccione la fecha:"
+            android:layout_gravity="center"
+            android:fontFamily="@font/pt_serif"
+            android:layout_marginTop="10dp"
+            />
+
+            <EditText
+                android:id="@+id/txt_Fecha"
+                android:layout_width="871px"
+                android:layout_height="136.5px"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint="Fecha"
+                android:fontFamily="@font/pt_sans_caption"
+                android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="871px"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:text="Seleccione la hora:"
+            android:fontFamily="@font/pt_serif"
+            />
+
+        <EditText
+            android:id="@+id/txt_hora"
+            android:layout_width="871px"
+            android:layout_height="136.5px"
+            android:ems="10"
+            android:hint="Hora"
+            android:inputType="textPersonName"
+            android:fontFamily="@font/pt_sans_caption"
+            android:layout_gravity="center"
+            />
+
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="871px"
@@ -77,15 +118,15 @@
                 android:layout_gravity="center"
                 />
 
-        <Button
-            android:id="@+id/btnIrMaps"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ver Ubicación en google maps"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/btn_ingresar_login"
-            />
+            <Button
+                android:id="@+id/btnIrMaps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ver Ubicación en google maps"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_ingresar_login"
+                />
 
         <Button
             android:id="@+id/btnGenerar"
@@ -95,6 +136,8 @@
             android:text="Generar turno"
             android:background="@drawable/btn_ingresar_login"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+
             />
 
     </LinearLayout>

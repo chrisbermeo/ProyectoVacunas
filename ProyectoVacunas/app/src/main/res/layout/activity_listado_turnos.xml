@@ -5,50 +5,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ListadoTurnos">
-    <TextView
-        android:id="@+id/textTurno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="Lista de turnos"
-        android:textColor="@color/black"
-        android:textSize="72px" />
+    tools:context=".ListadoTurnos"
+    android:background="@drawable/login_bg"
+    >
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
+        android:layout_width="1030px"
+        android:layout_height="1370px"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:background="@drawable/login_redondeado"
+        android:layout_marginTop="200px"
+        >
 
         <TextView
-            android:id="@+id/textView9"
-            android:layout_width="157dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@color/black"
-            android:text="Cedula de identidad" />
-
-        <TextView
-            android:id="@+id/txt_Ci"
+            android:id="@+id/textTurno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TextView" />
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/pt_serif"
+            android:text="Lista de turnos"
+            android:textColor="@color/black"
+            android:textSize="72px" />
 
-    </LinearLayout>
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="7"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="vertical">
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="17dp"
+                android:textColor="@color/black"
+                android:text="Cédula de identidad"
+                android:fontFamily="@font/pt_serif"
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+                />
+
+            <TextView
+                android:id="@+id/txt_Ci"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="17dp"
+                android:fontFamily="@font/pt_serif"
+                android:text="TextView" />
 
             <TextView
                 android:id="@+id/textView23"
@@ -56,32 +66,30 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                android:textSize="17dp"
+                android:fontFamily="@font/pt_serif"
                 android:text="Nombres" />
 
             <TextView
                 android:id="@+id/txt_nombres"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/pt_serif"
+                android:layout_marginTop="10dp"
+                android:textSize="17dp"
                 android:layout_weight="1"
                 android:text="TextView" />
-        </LinearLayout>
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/textView25"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/pt_serif"
+                android:layout_marginTop="10dp"
+                android:textSize="17dp"
                 android:textColor="@color/black"
                 android:text="Apellidos" />
 
@@ -89,26 +97,20 @@
                 android:id="@+id/txt_apellidos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="17dp"
+                android:fontFamily="@font/pt_serif"
                 android:layout_weight="1"
                 android:text="TextView" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/textView14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginTop="10dp"
+                android:textSize="17dp"
+                android:fontFamily="@font/pt_serif"
                 android:textColor="@color/black"
                 android:text="Tipo de vacuna:" />
 
@@ -116,26 +118,20 @@
                 android:id="@+id/txt_vacuna"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="17dp"
+                android:fontFamily="@font/pt_serif"
                 android:layout_weight="1"
                 android:text="TextView" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/textView18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginTop="10dp"
+                android:textSize="17dp"
+                android:fontFamily="@font/pt_serif"
                 android:textColor="@color/black"
                 android:text="Centro de Acopio" />
 
@@ -143,49 +139,108 @@
                 android:id="@+id/txt_Centro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="17dp"
+                android:fontFamily="@font/pt_serif"
                 android:layout_weight="1"
                 android:text="TextView" />
-        </LinearLayout>
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:orientation="vertical">
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="10dp"
+                android:textSize="17dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/pt_serif"
+                android:text="Fecha" />
 
-        <TextView
-            android:id="@+id/textView21"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="Direccion del centro de acopio en google maps" />
+            <TextView
+                android:id="@+id/txtFechaTurno"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="17dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pt_serif"
+                android:layout_weight="1"
+                android:text="TextView" />
 
-        <TextView
-            android:id="@+id/txt_urlMaps"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="10dp"
+                android:textSize="17dp"
+                android:fontFamily="@font/pt_serif"
+                android:textColor="@color/black"
+                android:text="Hora" />
+
+            <TextView
+                android:id="@+id/txtHoraTurno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="17dp"
+                android:fontFamily="@font/pt_serif"
+                android:layout_weight="1"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pt_serif"
+                android:layout_marginTop="10dp"
+                android:textSize="17dp"
+                android:textColor="@color/black"
+                android:text="Dirección en \nGoogle Maps" />
+
+            <TextView
+                android:id="@+id/txt_urlMaps"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:textSize="17dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pt_serif"
+                android:text="TextView" />
+
+        </GridLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center"
+            >
 
             <Button
                 android:id="@+id/btn_Atras"
-                android:layout_width="30dp"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Atras" />
 
             <Button
                 android:id="@+id/btn_Salir"
-                android:layout_width="30dp"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Cerrar Sesion" />
         </LinearLayout>
 
+
+
     </LinearLayout>
 
-</LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+
+

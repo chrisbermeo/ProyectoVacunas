@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +16,8 @@ class GeneracionTurnos : AppCompatActivity() {
     private lateinit var btnGenerar: Button
     private lateinit var txtCentrosAcopio: Spinner
     private lateinit var txtTipoVacuna: Spinner
+    private lateinit var txt_Fecha: EditText
+    private lateinit var txt_Hora: EditText
     var centro: String =""
     var id_usuario: String=""
     var email: String=""
@@ -29,6 +32,8 @@ class GeneracionTurnos : AppCompatActivity() {
         txtCentrosAcopio = findViewById(R.id.txtCentrosAcopio)
         txtTipoVacuna = findViewById(R.id.txtVacunas)
         btnGenerar = findViewById(R.id.btnGenerar)
+        txt_Fecha = findViewById(R.id.txt_Fecha)
+        txt_Hora = findViewById(R.id.txt_hora)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,12 +63,20 @@ class GeneracionTurnos : AppCompatActivity() {
                 forma2.putExtra("fk_usuario", id_usuario)
                 startActivity(forma2)
             }else {
-                addTurno()
+                if (txt_Fecha.text.isEmpty() || txt_Hora.text.isEmpty()){
+                    Toast.makeText(this, "Advertencia: Campos vacios", Toast.LENGTH_SHORT).show()
+                }else{
+                    if (consultarFechaHora()){
+                        Toast.makeText(this, "Horario y centro de acopio no disponibles", Toast.LENGTH_SHORT).show()
+                    }else{
+                        addTurno()
+                    }
+                }
             }
         }
     }
     fun addTurno(){
-        val admin = UserSqliteOpenHelper(this, "BD_usuarios", null, 1)
+        val admin = UserSqliteOpenHelper(this, "Bd_usuarios", null, 1)
         val bd = admin.writableDatabase
         val turno = ContentValues()
 
@@ -88,6 +101,8 @@ class GeneracionTurnos : AppCompatActivity() {
             val url="https://www.google.com.ec/maps/place/Antigua+Maternidad+Enrique+Sotomayor/@-2.1776737,-79.978233,13z/data=!4m8!1m2!2m1!1smaternidad+enrique+sotomayor!3m4!1s0x902d6f37cfb6e11d:0x644a7b5d415cb8fa!8m2!3d-2.1976353!4d-79.8891953?hl=es"
             turno.put("url_maps", url)
         }
+        turno.put("fecha", txt_Fecha.text.toString())
+        turno.put("hora", txt_Hora.text.toString())
         if(bd.insert("turno", null, turno)>-1){
             Toast.makeText(this, "Turno asignado", Toast.LENGTH_SHORT).show()
             val forma2 = Intent(this@GeneracionTurnos, ListadoTurnos::class.java)
@@ -130,16 +145,32 @@ class GeneracionTurnos : AppCompatActivity() {
 
 
     fun consultarTurno(): Boolean{
-        val admin = UserSqliteOpenHelper(this, "BD_usuarios", null, 1)
+        val admin = UserSqliteOpenHelper(this, "Bd_usuarios", null, 1)
         val bd = admin.writableDatabase
         val fila = bd.rawQuery("SELECT fk_id_usuario, tipo_vacuna, centro_acopio, url_maps FROM turno WHERE fk_id_usuario='$id_usuario'", null)
         if(fila.moveToFirst()){
             return true
         }else {
-            Toast.makeText(this, "Asignando turno", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Consultando...", Toast.LENGTH_SHORT).show()
             return false
         }
         bd.close()
     }
+    fun consultarFechaHora(): Boolean{
+        val admin = UserSqliteOpenHelper(this, "Bd_usuarios", null, 1)
+        val bd = admin.writableDatabase
+        val fecha= txt_Fecha.text.toString()
+        val hora= txt_Hora.text.toString()
+        val fila = bd.rawQuery("SELECT fk_id_usuario FROM turno WHERE fecha='$fecha' AND hora='$hora' AND centro_acopio='$centro'", null)
+        if(fila.moveToFirst()){
+            Toast.makeText(this, "Verificando....", Toast.LENGTH_SHORT).show()
+            return true
+        }else {
+            Toast.makeText(this, "Asignando turno....", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        bd.close()
+    }
+
 }
 
