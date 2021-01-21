@@ -13,8 +13,17 @@ class MenuOpciones : AppCompatActivity() {
     private lateinit var btnInformacion: CardView
     private lateinit var btnTurno: CardView
     private lateinit var btnSalir: Button
+
     var id_usuario: String=""
     var email: String=""
+
+    var cedula : String = ""
+    var nombre : String = ""
+    var apellido : String = ""
+    var fechaNacimiento : String = ""
+    var correo : String = ""
+    var password : String = ""
+
     fun init(){
         btnGeneracion = findViewById(R.id.btnGeneracion)
         btnInformacion = findViewById(R.id.btnInformacion)

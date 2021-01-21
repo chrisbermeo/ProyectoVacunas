@@ -60,7 +60,9 @@ class Registrarse : AppCompatActivity() {
                     "fecha_nacimiento" to txtFecha.text.toString(),
                     "vacuna" to "",
                     "centro_medico" to "",
-                    "url" to ""
+                    "url" to "",
+                    "fecha_turno" to "",
+                    "hora_turno" to ""
                 )
             )
     }

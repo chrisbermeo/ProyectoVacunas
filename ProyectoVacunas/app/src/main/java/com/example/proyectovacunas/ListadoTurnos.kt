@@ -48,11 +48,11 @@ class ListadoTurnos : AppCompatActivity() {
         buscarTurno()
         click_atras()
 
-        btnSalir.setOnClickListener{
+       /* btnSalir.setOnClickListener{
             FirebaseAuth.getInstance().signOut()
             val forma2 = Intent(this@ListadoTurnos, MainActivity::class.java)
             startActivity(forma2)
-        }
+        }*/
     }
 
 
