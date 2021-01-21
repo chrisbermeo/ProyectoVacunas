@@ -74,8 +74,6 @@ class MainActivity : AppCompatActivity() {
         startActivity(irRegistro)
     }
 
-    /*fun consultarUsuarios(email: String, provider: ProviderType){
-        val admin = UserSqliteOpenHelper(this, "BD_usuarios", null, 1)*/
 
     fun consultarUsuarios(email: String, provider: ProviderType){
         val admin = UserSqliteOpenHelper(this, "Bd_usuarios", null, 1)
