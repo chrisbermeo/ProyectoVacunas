@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 
 
 class ListadoTurnos : AppCompatActivity() {
@@ -48,9 +49,14 @@ class ListadoTurnos : AppCompatActivity() {
         click_atras()
 
         btnSalir.setOnClickListener{
-            //debe cerrar sesion
+            FirebaseAuth.getInstance().signOut()
+            val forma2 = Intent(this@ListadoTurnos, MainActivity::class.java)
+            startActivity(forma2)
         }
     }
+
+
+
 
     private fun turnoAlerta() {
         val builder = AlertDialog.Builder(this)

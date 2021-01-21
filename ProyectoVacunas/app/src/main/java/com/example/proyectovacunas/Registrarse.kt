@@ -74,6 +74,16 @@ class Registrarse : AppCompatActivity() {
         dialog.show()
     }
 
+    private fun alertCedula() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Error")
+        builder.setMessage("La cédula está incorrecta.")
+        builder.setPositiveButton("Intentar de nuevo.", null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
+    }
+
+
     private fun showHome(email: String, provider: ProviderType) {
         val homeIntent = Intent(this, MainActivity::class.java).apply {
             putExtra("email", email)
@@ -129,7 +139,6 @@ class Registrarse : AppCompatActivity() {
                     } else {
                         showAlert()
                     }
-
                 }
             }
         }
