@@ -52,19 +52,19 @@ class Registrarse : AppCompatActivity() {
 
     private fun guardarFirebase() {
         db.collection("users").document(txtCorreo.text.toString())
-            .set( //Se crea una colección de datos para guardar los datos de todos los usuarios
-                hashMapOf(
-                    "cedula" to txtCedula.text.toString(),
-                    "nombres" to txtNombre.text.toString(),
-                    "apellidos" to txtApellido.text.toString(),
-                    "fecha_nacimiento" to txtFecha.text.toString(),
-                    "vacuna" to "",
-                    "centro_medico" to "",
-                    "url" to "",
-                    "fecha_turno" to "",
-                    "hora_turno" to ""
+                .set( //Se crea una colección de datos para guardar los datos de todos los usuarios
+                        hashMapOf(
+                                "cedula" to txtCedula.text.toString(),
+                                "nombres" to txtNombre.text.toString(),
+                                "apellidos" to txtApellido.text.toString(),
+                                "fecha_nacimiento" to txtFecha.text.toString(),
+                                "vacuna" to "",
+                                "centro_medico" to "",
+                                "url" to "",
+                                "fecha_turno" to "",
+                                "hora_turno" to ""
+                        )
                 )
-            )
     }
 
     private fun showAlert() {

@@ -37,8 +37,7 @@ class MainActivity : AppCompatActivity() {
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(txtCorreo.text.toString(),
                         txtPassword.text.toString()).addOnCompleteListener {
                     if (it.isSuccessful) {
-                        consultarUsuarios()
-                        showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
+                        consultarUsuarios(it.result?.user?.email ?: "", ProviderType.BASIC)
                     } else {
                         showAlert()
                     }
@@ -50,14 +49,6 @@ class MainActivity : AppCompatActivity() {
         tvRegistrate.setOnClickListener(){
             registro()
         }
-    }
-
-    private fun showHome(email: String, provider: ProviderType) {
-        val homeIntent = Intent(this, MenuOpciones::class.java).apply {
-            putExtra("email", email)
-            putExtra("provider", provider.name)
-        }
-        startActivity(homeIntent)
     }
 
     private fun showAlert() {
@@ -83,8 +74,21 @@ class MainActivity : AppCompatActivity() {
         startActivity(irRegistro)
     }
 
+    fun irMenu() {
+        val irMenu = Intent(this@MainActivity, MenuOpciones::class.java)
+        startActivity(irMenu)
+    }
 
-     fun consultarUsuarios(){
+    private fun showHome(email: String, provider: ProviderType) {
+        val homeIntent = Intent(this, MainActivity::class.java).apply {
+            putExtra("email", email)
+            putExtra("provider", provider.name)
+        }
+        startActivity(homeIntent)
+    }
+
+
+     private fun consultarUsuarios(email: String, provider: ProviderType){
         val admin = UserSqliteOpenHelper(this, "Bd_usuarios", null, 1)
         val bd = admin.writableDatabase
         val fila = bd.rawQuery("SELECT id_usuario, correo, password FROM usuario", null)
@@ -93,8 +97,10 @@ class MainActivity : AppCompatActivity() {
                 val forma2 = Intent(this@MainActivity, MenuOpciones::class.java)
                 val Id_usuario = fila.getString(0)
                 forma2.putExtra("id_usuario", Id_usuario)
+                forma2.putExtra("email", email)
+                forma2.putExtra("provider", provider.name)
                 Toast.makeText(this, "$Id_usuario",  Toast.LENGTH_SHORT).show()
-                //startActivity(forma2)
+                startActivity(forma2)
                 break
             }
         }

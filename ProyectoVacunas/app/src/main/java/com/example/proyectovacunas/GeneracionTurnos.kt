@@ -42,13 +42,35 @@ class GeneracionTurnos : AppCompatActivity() {
         val objetoIntent : Intent = intent
         id_usuario= objetoIntent.getStringExtra("id_usuario").toString()
         email= objetoIntent.getStringExtra("email").toString()
-        centro= txtCentrosAcopio.selectedItem.toString()
         irMapa()
         btnGenerarTurno()
+        txt_Fecha.setOnClickListener { showDatePickerDialog() }
+        txt_Hora.setOnClickListener { showTimePickerDialog() }
+
 
     }
+
+    private fun showTimePickerDialog() {
+        val timePicker=TimePickerFragment{onTimeSelected(it)}
+        timePicker.show(supportFragmentManager,"time")
+    }
+
+    private fun onTimeSelected(time:String){
+        txt_Hora.setText("$time")
+    }
+
+    private fun showDatePickerDialog() {
+        val datePicker = DatePickerTurno { day, month, year -> onDateSelected(day, month, year) }
+        datePicker.show(supportFragmentManager, "fechaTurnos")
+    }
+
+    fun onDateSelected(day: Int, month: Int, year: Int) {
+        txt_Fecha.setText("$day-$month-$year")
+    }
+
     fun irMapa(){
         btnIr.setOnClickListener{
+            centro = txtCentrosAcopio.selectedItem.toString()
             val forma2 = Intent(this@GeneracionTurnos, MapsActivity::class.java)
             Toast.makeText(this, "$centro", Toast.LENGTH_SHORT).show()
             forma2.putExtra("centro_acopio", centro)
@@ -82,24 +104,36 @@ class GeneracionTurnos : AppCompatActivity() {
 
         turno.put("fk_id_usuario", id_usuario)
         turno.put("tipo_vacuna", txtTipoVacuna.selectedItem.toString())
-        turno.put("centro_acopio", centro)
+        turno.put("centro_acopio", txtCentrosAcopio.selectedItem.toString())
         agregarFirebase(email ?:"")
 
         if (txtCentrosAcopio.selectedItem.toString().equals("Hospital del Guasmo Sur")){
             val url="https://www.google.com.ec/maps/place/Hospital+General+Guasmo+Sur/@-2.2767636,-79.8975766,17z/data=!3m1!4b1!4m5!3m4!1s0x902d6568748e3853:0x80078f883bcaa045!8m2!3d-2.276769!4d-79.8953879?hl=es"
             turno.put("url_maps", url)
+            db.collection("users").document(email).update(
+                    mapOf("url" to url)
+            )
         }
         if (txtCentrosAcopio.selectedItem.toString().equals("Hospital los Ceibos")){
             val url="https://www.google.com.ec/maps/place/Hospital+del+IESS+Los+Ceibos/@-2.1779429,-79.9475906,16z/data=!4m8!1m2!2m1!1shospital+ceibos!3m4!1s0x0:0x639e483392c612ae!8m2!3d-2.1745629!4d-79.9412857?hl=es"
             turno.put("url_maps", url)
+            db.collection("users").document(email).update(
+                    mapOf("url" to url)
+            )
         }
         if (txtCentrosAcopio.selectedItem.toString().equals("Centro de Convenciones")){
             val url="https://www.google.com.ec/maps/place/Centro+de+Convenciones+de+Guayaquil+Sim%C3%B3n+Bol%C3%ADvar/@-2.177846,-79.978233,13z/data=!4m8!1m2!2m1!1scentro+de+convenciones!3m4!1s0x902d6da5205c1c7d:0x2e40a22fa0b1b30a!8m2!3d-2.1587384!4d-79.8873319?hl=es"
             turno.put("url_maps", url)
+            db.collection("users").document(email).update(
+                    mapOf("url" to url)
+            )
         }
         if (txtCentrosAcopio.selectedItem.toString().equals("Maternidad Enrique Sotomayor")){
             val url="https://www.google.com.ec/maps/place/Antigua+Maternidad+Enrique+Sotomayor/@-2.1776737,-79.978233,13z/data=!4m8!1m2!2m1!1smaternidad+enrique+sotomayor!3m4!1s0x902d6f37cfb6e11d:0x644a7b5d415cb8fa!8m2!3d-2.1976353!4d-79.8891953?hl=es"
             turno.put("url_maps", url)
+            db.collection("users").document(email).update(
+                    mapOf("url" to url)
+            )
         }
         turno.put("fecha", txt_Fecha.text.toString())
         turno.put("hora", txt_Hora.text.toString())
@@ -118,28 +152,9 @@ class GeneracionTurnos : AppCompatActivity() {
     private fun agregarFirebase(email: String){
         db.collection("users").document(email).update(
                 mapOf("centro_medico" to txtCentrosAcopio.selectedItem.toString(),
-                "vacuna" to txtTipoVacuna.selectedItem.toString())
-        )
-        if(txtCentrosAcopio.selectedItem.toString().equals("Hospital del Guasmo Sur")){
-            db.collection("users").document(email).update(
-                    mapOf("url" to "https://www.google.com.ec/maps/place/Hospital+General+Guasmo+Sur/@-2.2767636,-79.8975766,17z/data=!3m1!4b1!4m5!3m4!1s0x902d6568748e3853:0x80078f883bcaa045!8m2!3d-2.276769!4d-79.8953879?hl=es")
-            )
-        }
-        if(txtCentrosAcopio.selectedItem.toString().equals("Hospital los Ceibos")){
-            db.collection("users").document(email).update(
-                    mapOf("url" to "https://www.google.com.ec/maps/place/Hospital+del+IESS+Los+Ceibos/@-2.1779429,-79.9475906,16z/data=!4m8!1m2!2m1!1shospital+ceibos!3m4!1s0x0:0x639e483392c612ae!8m2!3d-2.1745629!4d-79.9412857?hl=es")
-            )
-        }
-        if(txtCentrosAcopio.selectedItem.toString().equals("Centro de Convenciones")){
-            db.collection("users").document(email).update(
-                    mapOf("url" to "https://www.google.com.ec/maps/place/Centro+de+Convenciones+de+Guayaquil+Sim%C3%B3n+Bol%C3%ADvar/@-2.177846,-79.978233,13z/data=!4m8!1m2!2m1!1scentro+de+convenciones!3m4!1s0x902d6da5205c1c7d:0x2e40a22fa0b1b30a!8m2!3d-2.1587384!4d-79.8873319?hl=es")
-            )
-        }
-        if(txtCentrosAcopio.selectedItem.toString().equals("Maternidad Enrique Sotomayor")){
-            db.collection("users").document(email).update(
-                    mapOf("url" to "https://www.google.com.ec/maps/place/Antigua+Maternidad+Enrique+Sotomayor/@-2.1776737,-79.978233,13z/data=!4m8!1m2!2m1!1smaternidad+enrique+sotomayor!3m4!1s0x902d6f37cfb6e11d:0x644a7b5d415cb8fa!8m2!3d-2.1976353!4d-79.8891953?hl=es")
-            )
-        }
+                        "vacuna" to txtTipoVacuna.selectedItem.toString(),
+                        "fecha_turno" to txt_Fecha.text.toString(),
+                        "hora_turno" to txt_Hora.text.toString()))
     }
 
 
@@ -174,4 +189,5 @@ class GeneracionTurnos : AppCompatActivity() {
     }
 
 }
+
 

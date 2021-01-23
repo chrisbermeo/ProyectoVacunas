@@ -1,102 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:background="@drawable/login_bg"
+    android:background="@color/grey_10"
     >
-    
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="@color/azul_oscuro" />
+
+
     <LinearLayout
-        android:layout_width="962px"
-        android:layout_height="1190px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
         android:orientation="vertical"
-        android:background="@drawable/login_redondeado"
-        android:layout_gravity="center"
-        android:layout_marginTop="200px"
-        >
+        android:padding="20dp">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/pt_serif"
-            android:text="Login"
-            android:textColor="@color/black"
-            android:textSize="72px" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="871px"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/pt_serif"
-            android:text="Correo electrónico"
-            android:textSize="36px" />
-
-        <EditText
-            android:id="@+id/txtCorreo"
-            android:layout_width="871px"
-            android:layout_height="136.5px"
-            android:layout_gravity="center"
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
             android:layout_marginBottom="20dp"
-            android:ems="10"
-            android:fontFamily="@font/pt_sans_caption"
-            android:inputType="textEmailAddress" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="871px"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/pt_serif"
-            android:text="Contraseña"
-            android:textSize="36px" />
-
-        <EditText
-            android:id="@+id/txtPassword"
-            android:layout_width="871px"
-            android:layout_height="136.5px"
-            android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
-            android:ems="10"
-            android:fontFamily="@font/pt_sans_caption"
-            android:inputType="textPassword" />
-
-        <Button
-            android:id="@+id/btnIngresar"
-            android:layout_width="641px"
-            android:layout_height="108px"
-            android:text="Ingresar"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center"
-            android:background="@drawable/btn_ingresar_login"
-            android:textColor="@drawable/txt_btn_ingresar"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/user_icon"
             />
 
-        <TextView
-            android:id="@+id/tvRegistrate"
-            android:layout_width="wrap_content"
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:clickable="true"
-            android:fontFamily="@font/pt_sans_caption"
-            android:text="¿No tienes cuenta? Regístrate"
-            android:textColor="@color/azul_texto"
-            android:textSize="16dp"></TextView>
+            android:layout_margin="10dp"
+            android:visibility="visible"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="5dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+                >
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="35dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/pt_serif"
+                    android:text="Login"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:textSize="72px" />
+
+
+
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pt_serif"
+                    android:text="Correo electrónico"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+                    android:textColor="@color/grey_40"
+                    android:gravity="center_horizontal"
+                    android:textSize="36px"
+                    />
+
+
+                <EditText
+                    android:id="@+id/txtCorreo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:fontFamily="@font/pt_sans_caption"
+                    android:inputType="textEmailAddress" />
+
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pt_serif"
+                    android:textSize="36px"
+                    android:text="Contraseña"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+                    android:textColor="@color/grey_40"
+                    android:gravity="center_horizontal" />
+
+
+
+                <EditText
+                    android:id="@+id/txtPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:fontFamily="@font/pt_sans_caption"
+                    android:inputType="textPassword" />
+
+                <Button
+                    android:id="@+id/btnIngresar"
+                    android:layout_width="641px"
+                    android:layout_height="108px"
+                    android:text="Ingresar"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/btn_ingresar_login"
+                    android:textColor="@drawable/txt_btn_ingresar"
+                    />
+
+                <TextView
+                    android:id="@+id/tvRegistrate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:clickable="true"
+                    android:fontFamily="@font/pt_sans_caption"
+                    android:text="¿No tienes cuenta? Regístrate"
+                    android:textColor="@color/azul_texto"
+                    android:textSize="16dp"></TextView>
+
+
+
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
 
 
 
 
     </LinearLayout>
 
-
-
-</LinearLayout>
+</RelativeLayout>

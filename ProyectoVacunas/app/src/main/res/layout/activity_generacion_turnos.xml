@@ -84,6 +84,8 @@
                 android:layout_gravity="center"
                 android:ems="10"
                 android:hint="Fecha"
+                android:clickable="true"
+                android:focusable="false"
                 android:fontFamily="@font/pt_sans_caption"
                 android:inputType="textPersonName" />
 
@@ -103,6 +105,8 @@
             android:layout_height="136.5px"
             android:ems="10"
             android:hint="Hora"
+            android:clickable="true"
+            android:focusable="false"
             android:inputType="textPersonName"
             android:fontFamily="@font/pt_sans_caption"
             android:layout_gravity="center"
