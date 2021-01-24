@@ -72,6 +72,7 @@ class MainActivity : AppCompatActivity() {
     fun registro() {
         val irRegistro = Intent(this@MainActivity, Registrarse::class.java)
         startActivity(irRegistro)
+        finish()
     }
 
     fun irMenu() {
@@ -105,5 +106,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
         bd.close()
+         finish()
     }
 }

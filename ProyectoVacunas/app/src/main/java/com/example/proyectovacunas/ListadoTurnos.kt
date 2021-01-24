@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.UnderlineSpan
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -15,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 class ListadoTurnos : AppCompatActivity() {
     private lateinit var btnSalir: Button
-    private lateinit var btnAtras: Button
+    private lateinit var btnAtras: ImageButton
     private lateinit var txtCedula: TextView
     private lateinit var txtVacuna: TextView
     private lateinit var txtCentroAcopio: TextView
@@ -52,10 +53,9 @@ class ListadoTurnos : AppCompatActivity() {
             FirebaseAuth.getInstance().signOut()
             val forma2 = Intent(this@ListadoTurnos, MainActivity::class.java)
             startActivity(forma2)
+            finish()
         }
     }
-
-
 
 
     private fun turnoAlerta() {
@@ -72,6 +72,7 @@ class ListadoTurnos : AppCompatActivity() {
             val forma2 = Intent(this@ListadoTurnos, MenuOpciones::class.java)
             forma2.putExtra("id_usuario", fk_usuario)
             startActivity(forma2)
+            finish()
         }
     }
     fun buscarTurno(){

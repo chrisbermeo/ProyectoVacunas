@@ -1,126 +1,232 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Registrarse"
-    android:background="@drawable/login_bg"
+    android:background="@color/grey_10"
     >
 
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="@color/azul_oscuro" />
 
     <LinearLayout
-        android:layout_width="962px"
-        android:layout_height="1370px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
         android:orientation="vertical"
-        android:background="@drawable/login_redondeado"
-        android:layout_gravity="center"
-        android:layout_marginTop="200px"
-        >
+        android:padding="20dp">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textView37"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
             android:fontFamily="@font/pt_serif"
-            android:text="Regístrate"
+            android:text="Información de la cuenta"
+            android:textAlignment="center"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
             android:textColor="@color/black"
-            android:textSize="72px" />
-
-        <EditText
-            android:id="@+id/txtCedula"
-            android:layout_width="871px"
-            android:layout_height="136.5px"
-            android:ems="10"
-            android:inputType="number"
-            android:hint="Cédula"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
-            android:fontFamily="@font/pt_sans_caption"
-
-
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
             />
 
-        <EditText
-            android:id="@+id/txtNombres"
-            android:layout_width="871px"
-            android:layout_height="136.5px"
-            android:ems="10"
-            android:hint="Nombres"
-            android:inputType="textCapCharacters"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
-            android:fontFamily="@font/pt_sans_caption"
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:visibility="visible"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="5dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+
+
+                <EditText
+                    android:id="@+id/txtCorreo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textEmailAddress"
+                    android:hint="Correo"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/pt_sans_caption"
+                    />
+
+                <EditText
+                    android:id="@+id/txtPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPassword"
+                    android:hint="Contraseña"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/pt_sans_caption"
+                    />
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/textView38"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pt_serif"
+            android:text="Información personal"
+            android:textAlignment="center"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+            android:textColor="@color/black"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:textSize="20dp"
             />
 
-        <EditText
-            android:id="@+id/txtApellidos"
-            android:layout_width="871px"
-            android:layout_height="136.5px"
-            android:ems="10"
-            android:hint="Apellidos"
-            android:inputType="textCapCharacters"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
-            android:fontFamily="@font/pt_sans_caption"
-            />
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:visibility="visible"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="5dp"
+            >
 
-        <EditText
-            android:id="@+id/txtFechaNacimiento"
-            android:layout_width="871px"
-            android:layout_height="136.5px"
-            android:ems="10"
-            android:hint="Fecha de Nacimiento"
-            android:clickable="true"
-            android:focusable="false"
-            android:maxLines="1"
-            android:inputType="textCapCharacters"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
-            android:fontFamily="@font/pt_sans_caption"
-            />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
 
-        <EditText
-            android:id="@+id/txtCorreo"
-            android:layout_width="871px"
-            android:layout_height="136.5px"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-            android:hint="Correo"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
-            android:fontFamily="@font/pt_sans_caption"
-            />
 
-        <EditText
-            android:id="@+id/txtPassword"
-            android:layout_width="871px"
-            android:layout_height="136.5px"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:hint="Contraseña"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
-            android:fontFamily="@font/pt_sans_caption"
-            />
+
+                <EditText
+                    android:id="@+id/txtCedula"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:hint="Cédula"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/pt_sans_caption"
+
+
+                    />
+
+                <EditText
+                    android:id="@+id/txtNombres"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Nombres"
+                    android:inputType="textCapCharacters"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/pt_sans_caption"
+                    />
+
+                <EditText
+                    android:id="@+id/txtApellidos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Apellidos"
+                    android:inputType="textCapCharacters"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/pt_sans_caption"
+                    />
+
+                <EditText
+                    android:id="@+id/txtFechaNacimiento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Fecha de Nacimiento"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:maxLines="1"
+                    android:inputType="textCapCharacters"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/pt_sans_caption"
+                    />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <Button
             android:id="@+id/btnRegistrarse"
             android:layout_width="641px"
             android:layout_height="108px"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/btn_ingresar_login"
             android:backgroundTint="@color/rojo_primario"
             android:text="Registrarse"
             android:textColor="@drawable/txt_btn_ingresar" />
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pt_serif"
+                android:text="¿Ya tienes una cuenta?"
+                android:textAlignment="center"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+                android:textColor="@color/black"
+                android:gravity="center_horizontal"
+                android:layout_marginLeft="10dp"
+
+                android:textSize="15dp"
+                />
+            <TextView
+                android:id="@+id/tvLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pt_serif"
+                android:clickable="true"
+                android:focusable="false"
+                android:text=" Ingresa ahora"
+                android:textAlignment="center"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+                android:textColor="@color/azul_oscuro"
+                android:gravity="center_horizontal"
+
+                android:textSize="15dp"
+                />
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
     </LinearLayout>
 
-
-
-</LinearLayout>
+</RelativeLayout>

@@ -12,7 +12,7 @@ class MenuOpciones : AppCompatActivity() {
     private lateinit var btnGeneracion: CardView
     private lateinit var btnInformacion: CardView
     private lateinit var btnTurno: CardView
-    private lateinit var btnSalir: Button
+    private lateinit var btnSalir: CardView
 
     var id_usuario: String=""
     var email: String=""

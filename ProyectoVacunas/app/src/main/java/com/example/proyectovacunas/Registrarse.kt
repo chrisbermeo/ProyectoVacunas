@@ -20,6 +20,7 @@ class Registrarse : AppCompatActivity() {
     private lateinit var txtNombre: EditText
     private lateinit var txtApellido: EditText
     private lateinit var txtCedula: EditText
+    private lateinit var tvLogin:TextView
 
     private val db = FirebaseFirestore.getInstance()
 
@@ -31,6 +32,7 @@ class Registrarse : AppCompatActivity() {
         txtNombre = findViewById(R.id.txtNombres)
         txtApellido = findViewById(R.id.txtApellidos)
         txtCedula = findViewById(R.id.txtCedula)
+        tvLogin = findViewById(R.id.tvLogin)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +41,13 @@ class Registrarse : AppCompatActivity() {
         init()
         setup()
         txtFecha.setOnClickListener { showDatePickerDialog() }
+        tvLogin.setOnClickListener{irLogin()}
+    }
+
+    private fun irLogin() {
+        val forma2 = Intent(this,MainActivity::class.java)
+        startActivity(forma2)
+        finish()
     }
 
     private fun showDatePickerDialog() {
@@ -138,6 +147,7 @@ class Registrarse : AppCompatActivity() {
                         addUsuario()
                         guardarFirebase()
                         showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
+                        finish()
                     } else {
                         showAlert()
                     }
