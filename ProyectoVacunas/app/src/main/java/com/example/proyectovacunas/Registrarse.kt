@@ -87,8 +87,17 @@ class Registrarse : AppCompatActivity() {
 
     private fun alertCedula() {
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Error")
-        builder.setMessage("La cédula está incorrecta.")
+        builder.setTitle("Advertencia")
+        builder.setMessage("La cédula está incorrecta\nDebe tener 10 dígitos.")
+        builder.setPositiveButton("Intentar de nuevo.", null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
+    }
+
+    private fun alertCampos() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Advertencia")
+        builder.setMessage("Debe llenar todos los campos.")
         builder.setPositiveButton("Intentar de nuevo.", null)
         val dialog: AlertDialog = builder.create()
         dialog.show()
@@ -126,18 +135,9 @@ class Registrarse : AppCompatActivity() {
         title = "Autenticación"
         btnRegistrarse.setOnClickListener() {
             if (txtCedula.text.isEmpty() || txtNombre.text.isEmpty() || txtApellido.text.isEmpty() || txtFecha.text.isEmpty() || txtCorreo.text.isEmpty() || txtPassword.text.isEmpty()) {
-                Toast.makeText(
-                        this,
-                        "Por favor llenar todos los campos",
-                        Toast.LENGTH_SHORT
-                ).show()
-
+                alertCampos()
             } else if (txtCedula.text.toString().length >= 11 || txtCedula.text.toString().length <= 9) {
-                Toast.makeText(
-                        this,
-                        "Por favor la cedula consta de 10 digitos",
-                        Toast.LENGTH_SHORT
-                ).show()
+                alertCedula()
             } else {
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(
                         txtCorreo.text.toString(),

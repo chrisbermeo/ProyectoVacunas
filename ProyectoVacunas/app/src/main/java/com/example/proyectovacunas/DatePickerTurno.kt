@@ -26,6 +26,7 @@ class DatePickerTurno(val listener: (date: Int, month: Int, year: Int)-> Unit): 
         val picker = DatePickerDialog(activity as Context, this, year, month,day)
         picker.datePicker.minDate = c.timeInMillis
 
+
         return  picker
     }
 }

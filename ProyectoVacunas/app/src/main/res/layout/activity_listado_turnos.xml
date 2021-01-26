@@ -184,7 +184,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginTop="10dp"
-
                 android:textColor="@color/black"
                 android:fontFamily="@font/pt_serif"
                 android:text="Fecha" />
@@ -233,7 +232,6 @@
                 android:layout_weight="1"
                 android:text="TextView" />
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"

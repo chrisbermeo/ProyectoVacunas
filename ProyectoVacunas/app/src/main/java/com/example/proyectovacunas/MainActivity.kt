@@ -21,6 +21,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvRegistrate: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Thread.sleep(2000)
+        setTheme(R.style.SplashTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         btnIngresar = findViewById(R.id.btnIngresar)
@@ -100,7 +102,7 @@ class MainActivity : AppCompatActivity() {
                 forma2.putExtra("id_usuario", Id_usuario)
                 forma2.putExtra("email", email)
                 forma2.putExtra("provider", provider.name)
-                Toast.makeText(this, "$Id_usuario",  Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this, "$Id_usuario",  Toast.LENGTH_SHORT).show()
                 startActivity(forma2)
                 break
             }

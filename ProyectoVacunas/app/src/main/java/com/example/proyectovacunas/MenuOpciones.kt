@@ -47,7 +47,7 @@ class MenuOpciones : AppCompatActivity() {
             val forma2 = Intent(this@MenuOpciones, GeneracionTurnos::class.java)
             forma2.putExtra("id_usuario", id_usuario)
             forma2.putExtra("email", email)
-            Toast.makeText(this, "$id_usuario $email",  Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this, "$id_usuario $email",  Toast.LENGTH_SHORT).show()
             startActivity(forma2)
         }
     }

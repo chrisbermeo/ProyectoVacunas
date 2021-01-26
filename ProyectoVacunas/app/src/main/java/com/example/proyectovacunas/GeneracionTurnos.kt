@@ -10,6 +10,7 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
+import java.util.*
 
 class GeneracionTurnos : AppCompatActivity() {
     private lateinit var btnIr: Button
@@ -22,9 +23,6 @@ class GeneracionTurnos : AppCompatActivity() {
     var id_usuario: String=""
     var email: String=""
     private val db = FirebaseFirestore.getInstance()
-
-    //val bundle:Bundle? = intent.extras
-    //val email:String? = bundle?.getString("email")
 
 
     fun init(){
@@ -46,9 +44,8 @@ class GeneracionTurnos : AppCompatActivity() {
         btnGenerarTurno()
         txt_Fecha.setOnClickListener { showDatePickerDialog() }
         txt_Hora.setOnClickListener { showTimePickerDialog() }
-
-
     }
+
 
     private fun showTimePickerDialog() {
         val timePicker=TimePickerFragment{onTimeSelected(it)}
@@ -64,7 +61,7 @@ class GeneracionTurnos : AppCompatActivity() {
         datePicker.show(supportFragmentManager, "fechaTurnos")
     }
 
-    fun onDateSelected(day: Int, month: Int, year: Int) {
+    private fun onDateSelected(day: Int, month: Int, year: Int) {
         txt_Fecha.setText("$day-$month-$year")
     }
 
@@ -72,7 +69,7 @@ class GeneracionTurnos : AppCompatActivity() {
         btnIr.setOnClickListener{
             centro = txtCentrosAcopio.selectedItem.toString()
             val forma2 = Intent(this@GeneracionTurnos, MapsActivity::class.java)
-            Toast.makeText(this, "$centro", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this, "$centro", Toast.LENGTH_SHORT).show()
             forma2.putExtra("centro_acopio", centro)
             startActivity(forma2)
         }
