@@ -6,7 +6,7 @@ Este proyecto fue creado como tarea universitaria y tiene como objetivo generar 
 La aplicación móvil fue desarrollada en Android Studio con el lenguaje de programación Kotlin, cuenta con una base de datos en la nube desarrollada en [Firebase](https://firebase.google.com/ "Firebase") 
 
 ## Interfaz:
-- ### **Registro **
+- ### **Registro**
 ![Login](https://lh3.googleusercontent.com/KCiaFhSY_RTFDOB6mGW7-BDBohtF1wTvjL8HSBTqkXeNhgHKqI2jA7DJtVh1iYGDuQInsiXAcf2vXZP1ZtwjSxHrg4ItnvPxX3tgMmn9prUX91PFmTRxVNW312Tim-6mwVpOlYMzYojutuK1LLmWiX3JxhFiUgRprD8Z-qK9v50FTo4Op-97A_AGRWwVkKBJrol40_GmULf1GeXe3nzdXG-c-PZl9sc9i_ROkJTRXqtrF9y-yl8qtTAYSLa0h7eLOngfuBPTerQtz-H0kpXvuVatqHxPOF2wmh4H5TOQzfmfBhkpuPc2bgMYhZTRiVTrjPJNTD1OgFB4igWCJPpVVnfubpALGjBVBMt3sTQy-JgOmno14A9pCGfIwdS4NhGxxWKPQT_CBBhtK9bnYfo19QVM0AeGyWkoxmJ7wryvKzhLatdgwpjcmQpIhXrrvVxKVnobKIsAkARIBiny4K3YURxNC2eVO_3m-94tfaWTQl5QBydkrl-OrcI3J3hlvDFo6m16h5UaFLHUfzGX2gFfmBPhgvFhIHmnn0F3mjbIeXBaN-0YnBsa2E_IthsIIjhzrYEzL9OyL3jfgiVM4PuqUyYjxEERqGDPykpcUAqU8Zl7rVoQv7ELqyOpm7chra9g7hBK1jdFj24KIoKIcOryFkOzOMnZ_T0rPRY3Sei55CHntXP8w06hvMkp2QQYgy4b4kRxmL9_6QPw8yTJPplH4XU=w428-h903-no?authuser=1 "ddd")
 
 - ### **Menú principal** 
